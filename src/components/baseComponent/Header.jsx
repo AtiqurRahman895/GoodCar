@@ -5,7 +5,6 @@ import NavMenus from "./NavMenus";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import logo from "../../assets/logoRemovedBg.png"
 // import { GoUnverified } from "react-icons/go";
 
 const Header = () => {
@@ -46,37 +45,20 @@ const Header = () => {
       <header ref={headerRef} className={`sticky top-0 z-50 w-full py-2`}>
         <div className={`navbar container`}>
           <div className="navbar-start">
-            <div className="dropdown">
-              <div tabIndex="0" role="button" className="btn btn-ghost lg:hidden">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />
-                </svg>
-              </div>
-              <ul
-                tabIndex="0"
-                className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 space-y-2 shadow text-black items-center"
-              >
-                  <NavMenus/>
 
-              </ul>
-            </div>
+            <label htmlFor="navSideBar" aria-label="open sidebar" className="p-1.5 border border-custom-half-primary rounded-md lg:hidden">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#e8092e" >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+            </label>
+            
             <Link 
               to={"/"}
               className={`btn btn-ghost hover:bg-transparent font-faster text-2xl text-custom-primary hover:text-black uppercase`}>
               {/* <img src={logo} alt="Discount Pro" className="w-[100px]"/> */}
               Good Car
             </Link>
+
           </div>
           <div className="navbar-center hidden lg:inline-block">
             <ul className="menu menu-horizontal px-1 grid lg:grid-flow-col-dense lg:grid-rows-2 xl:grid-rows-1 items-center justify-items-center">
@@ -135,8 +117,6 @@ const Header = () => {
               </div>
               
             }
-
-
 
 
           </div>

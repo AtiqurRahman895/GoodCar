@@ -1,5 +1,4 @@
 // import PropTypes from 'prop-types';
-import logo from "../../assets/logoRemovedBg.png"
 
 import NavMenus from "./NavMenus";
 

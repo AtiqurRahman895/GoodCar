@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { useState } from "react";
 import { TransferLists } from "../../Contexts/TransferLists";
+import NavSideBar from "./NavSidebar";
 const Base = () => {
 
   const [users, setUsers] = useState([]);
@@ -19,9 +20,16 @@ const Base = () => {
   return (
     <>
       <TransferLists.Provider value={value}>
-        <Header />
-        <Outlet />
-        <Footer />
+          <NavSideBar>
+
+            {/* Navbar */}
+            <Header />
+            {/* Page content here */}
+            <Outlet />
+            <Footer />
+            
+          </NavSideBar>
+
       </TransferLists.Provider>
 
     </>

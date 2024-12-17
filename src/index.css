@@ -160,6 +160,11 @@
   @apply pl-0 lg:pl-4 ml-4 lg:ml-0 
 
 }
+.drawer-side .menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .drawer-side .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  margin-inline: 0px;
+  padding-inline: 0px !important;
+  padding-right: 1rem !important;
+}
 
 @media (min-width: 1024px) {
   .menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {

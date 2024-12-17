@@ -9,7 +9,7 @@ const ErrorPage = () => {
     return (
         <>
             <Helmet>
-                <title>{statusText} | Gadget Heaven</title>
+                <title>{statusText} | Good Car</title>
             </Helmet>
 
             <div className='h-lvh place-items-center grid gap-3 content-center bg-white'>
