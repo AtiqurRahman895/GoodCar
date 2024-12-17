@@ -65,6 +65,8 @@
 }
 @layer utilities {
   .headerSectionAnimation {
+    background-color: rgba(75, 75, 75, .35);
+    color: white;
     backdrop-filter: blur(20px);
   }
 

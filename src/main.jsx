@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
-import Base from './components/baseComponent/Base'
+import Base from './components/BaseComponent/Base'
 import ErrorPage from './components/ErrorPageComponent/ErrorPage'
 import Login from "./components/AuthenticationComponent/Login";
 import Register from "./components/AuthenticationComponent/Register";
@@ -14,6 +14,7 @@ import PrivateRoute from "./components/AuthenticationComponent/PrivateRoute";
 import UpdateProfile from "./components/AuthenticationComponent/UpdateProfile";
 import ChangePassword from "./components/AuthenticationComponent/ChangePassword";
 import ForgotPassword from "./components/AuthenticationComponent/ForgotPassword";
+import Home from './components/HomeComponent/Home';
 
 const router = createBrowserRouter([
   {
@@ -22,10 +23,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
 
     children:[
-      // {
-      //   path: "/",
-      //   element: <Home />,
-      // },
+      {
+        path: "/",
+        element: <Home />,
+      },
 
       // Authentication
       {
