@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+
+/* src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /* h1, h2, h3, h4, h5, h6{
+        @apply text-black;
+    } */
+
+  h1 {
+    @apply text-[clamp(1.75rem,1.1578947368421053rem+2.9605263157894735vw,4rem)] font-bold;
+  }
+  h2 {
+    @apply text-[clamp(1.5rem,1.236842105263158rem+1.3157894736842104vw,2.5rem)] font-semibold;
+  }
+  h3 {
+    @apply text-[clamp(1.75rem,1.6842105263157894rem+0.3289473684210526vw,2rem)] font-semibold;
+  }
+  
+  h4 {
+    @apply text-[1.5rem] font-semibold;
+  }
+  h5 {
+    @apply text-[1.25rem] font-semibold;
+  }
+  h6 {
+    @apply text-[1rem] ;
+  }
+  * {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply text-black-font bg-white overflow-x-hidden font-manrope font-medium;
+  }
+  p,
+  span,
+  a,b {
+    @apply text-[14px];
+    
+  }
+  a{
+    @apply hover:scale-105 duration-500
+  }
+  header a{
+    @apply hover:text-inherit duration-500
+  }
+  footer a{
+    @apply hover:text-custom-primary hover:font-bold 
+  }
+
+  /* input,
+  textarea {
+    @apply ;
+  } */
+  /* input,textarea {
+    @apply focus:invalid:border focus:invalid:border-rose-300 focus:valid:border focus:valid:border-custom-primary;
+  } */
+
+}
+@layer utilities {
+  .headerSectionAnimation {
+    backdrop-filter: blur(20px);
+  }
+
+  .sectionHeaderWidth{
+    @apply w-[90%] sm:w-[70%] mx-auto
+  }
+  .sectionHeaderSubtextWidth{
+    @apply text-[16px] xs:text-lg md:text-xl
+  }
+
+  .primaryButton{
+    @apply cursor-pointer px-4 py-2 text-center text-sm text-nowrap font-bold rounded-md duration-500 text-white bg-custom-primary border border-custom-primary hover:shadow-sm 
+  }
+  .activePrimaryButton{
+    @apply hover:bg-custom-half-primary hover:text-custom-primary
+  }
+  .joinedFilterButton{
+    @apply bg-white duration-500 hover:bg-custom-primary btn join-item border border-gray-300 hover:border-gray-300 text-inherit
+  }
+  .formSubmitBtn{
+    @apply btn bg-custom-primary hover:bg-white text-white hover:text-black btn-block
+  }
+
+  .fromWrapper{
+    @apply card w-full shrink-0 bg-black text-white shadow-xl p-4 md:p-8 my-20 space-y-4
+  }
+
+  .MyReviewTable thead tr, .MyReviewTable tfoot tr, .MyReviewTable th{
+    @apply bg-custom-primary text-white
+  }
+
+
+  .footerCopyRights a {
+    /* animation-name: glowMyPortfolioLink;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode:both; */
+    /* animation-timing-function: cubic-bezier(0.28, -0.08, 0.61, 1.04); */
+    animation: glowMyPortfolioLink 5s linear infinite;
+  }
+  
+  @keyframes glowMyPortfolioLink {
+    
+    0% {
+      color: #e8092e;
+    }
+  
+    10% {
+      color:  #bb2a42;
+    }
+    50% {
+      color:  #d74c63;
+    }
+    90% {
+      color:  #fa4563;
+    }
+    100% {
+      color: #e8092e
+    }
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-custom-gradient {
+    background: linear-gradient(109deg, rgba(199,101,165,1) 0%, rgba(241,71,73,1) 40%, rgba(251,202,87,1) 100%);
+  }
+
+  .menu li > *:not(ul,.themeController, .menu-title, details, .btn):active, .menu li > *:not(ul,.themeController, .menu-title, details, .btn).active, .menu li > details > summary:active {
+    --tw-bg-opacity: 1;
+    background-color: inherit;
+    color: inherit;
+    border-radius: 0px;
+    border-bottom: 2px solid;
+}
+
+.menu li > .themeController:active ,.themeController:focus, .menu li > .themeController.active {
+  border: none !important;
+}
+
+.themeController:hover, .themeController:focus{
+  color:inherit !important;
+  background-color: transparent !important;
+}
+
+.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply pl-0 lg:pl-4 ml-4 lg:ml-0 
+
+}
+
+@media (min-width: 1024px) {
+  .menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    margin-inline: 0px;
+    padding-inline: 1rem;
+  }
+}
+
+.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    margin-inline: 0px;
+    padding-inline: 1rem;
+}
+
+.input:focus, .input:focus-within,
+.textarea:focus, .textarea:focus-within,
+.select:focus, .select:focus-within{
+  @apply border-white
+
+}
+.input:focus, .input:focus-within,
+.textarea:focus, .textarea:focus-within,
+.select:focus, .select:focus-within{
+  color: inherit;
+  background-color: transparent !important;
+
+}
+.input:disabled ,
+.textarea:disabled {
+  color: #7272729b;
+  border-color: #7272729b !important;
+  background-color: #6868682b !important;
+
+}
+
+.invalid{
+  @apply border focus:border-rose-300
+}
+
+
+}
