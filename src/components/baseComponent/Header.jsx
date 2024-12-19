@@ -12,10 +12,12 @@ const Header = () => {
     useEffect(() => {
       const path= location.pathname
       // if(path == "/"){
-      //   headerRef.current?.classList.remove(`headerSectionBG`);
+      //   headerRef.current?.classList.remove(`sticky`);
+      //   headerRef.current?.classList.add(`fixed text-white`);
       // }
       // else{
-      //   headerRef.current?.classList.add(`headerSectionBG`);
+      //   headerRef.current?.classList.remove(`fixed text-white`);
+      //   headerRef.current?.classList.add(`sticky`);
       // }
       window.scrollTo(0, 0); // Scroll to the top of the page
     }, [location.pathname]); // Trigger when the route changes
@@ -42,7 +44,7 @@ const Header = () => {
   // console.log(location.pathname)
 
   return (
-      <header ref={headerRef} className={`sticky top-0 z-50 w-full py-2`}>
+      <header ref={headerRef} className={`${location.pathname==="/"?"fixed text-white":"sticky"} top-0 z-50 w-full py-2`}>
         <div className={`navbar container`}>
           <div className="navbar-start">
 
@@ -95,7 +97,7 @@ const Header = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm space-y-2">
+                    className="menu menu-sm space-y-2 text-black-font">
 
                     {user.emailVerified || <li className="hover:scale-105 duration-200"><p onClick={verifyAccount} className="font-bold text-black"> Verify now </p></li>}
 
