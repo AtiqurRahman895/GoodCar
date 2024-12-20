@@ -55,7 +55,7 @@ const ServicesSection = () => {
 
     ]
     return (
-        <section className="pb-16">
+        <section className="py-16">
             <div className="container space-y-8">
                 <div className="text-center font-bold">
                     <h6 className="text-custom-primary">What We Do</h6>

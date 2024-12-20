@@ -37,7 +37,7 @@ const HomeHeroSection = () => {
     };
 
     return (
-        <section className='bg-black mb-6' style={{paddingBottom:`${bannerSectionHeight-(bannerSectionHeight/(screenWidth>=1024?3:7))}px`}}>
+        <section className='bg-black' style={{paddingBottom:`${bannerSectionHeight-(bannerSectionHeight/(screenWidth>=1024?3:7))}px`}}>
             <div className="relative w-full mx-auto">
             <video className='min-h-full min-w-full object-cover absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-10' preload='auto' autoPlay muted loop poster="https://i.ibb.co.com/Hn206Qj/hero-Image.png">
                 <source src={heroVideo} type="video/mp4" />
