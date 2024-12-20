@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import HomeHeroSection from './HomeHeroSection';
+import ServicesSection from './ServicesSection';
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
                 <title>Home | GOOD CAR</title>
             </Helmet>
             <HomeHeroSection/>
+            <ServicesSection/>
         </main>
         
     );
