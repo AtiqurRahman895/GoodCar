@@ -61,7 +61,7 @@ const ServicesSection = () => {
                     <h2 className="text-black">Our Services</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-1 ">
                     {
                         servicesList.map((service,index)=>(
                             <ServiceCard key={index} service={service} />

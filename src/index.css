@@ -206,5 +206,9 @@
   @apply border focus:border-rose-300
 }
 
+.css-hlgwow * {
+  color: wheat;
+}
+
 
 }

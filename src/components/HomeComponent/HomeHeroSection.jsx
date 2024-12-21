@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import HomeBanner from './HomeBanner';
 import { useRef } from 'react';
 import useBannerHeightWidth from '../../Hooks/useBannerHeightWidth';
+import { Fade } from 'react-awesome-reveal';
 
 const HomeHeroSection = () => {
     const BannerRef=useRef(null)
@@ -61,8 +62,12 @@ const HomeHeroSection = () => {
                     }
                 </Slider>
 
-                <div ref={BannerRef} className="absolute left-[50%] translate-x-[-50%] container" style={{bottom:`-${bannerSectionHeight-(bannerSectionHeight/(screenWidth>=1024?1.5:4))}px`}}>
-                    <HomeBanner/>
+
+                <div ref={BannerRef} className="container absolute left-[50%] translate-x-[-50%] " style={{bottom:`-${bannerSectionHeight-(bannerSectionHeight/(screenWidth>=1024?1.5:4))}px`}}>
+                    <Fade delay={1000} duration={1000} direction='up' triggerOnce>
+                        <HomeBanner/>   
+                    </Fade>
+                
                 </div>
 
                 
