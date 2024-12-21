@@ -22,7 +22,7 @@ const AdditionalServicesSction = () => {
     ]
 
     return (
-        <section className="py-16 bg-black text-white mb-6">
+        <section className="py-16 bg-black bg-[url('https://i.ibb.co.com/1MGzpC9/addtional-Service.jpg')] text-white bg-cover bg-no-repeat bg-center" >
             <div className="container space-y-12">
                 <div className="text-center font-bold">
                     <h6 className="text-custom-primary">We Also Do</h6>
@@ -32,18 +32,18 @@ const AdditionalServicesSction = () => {
                 <div className="w-fit md:mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 ">
                     <div className="grid gap-6 w-fit">
                         {firstSetOfAdditionalServices?.map((service,index)=>(
-                            <h6 key={index} className="flex gap-2">
-                                <IoMdCheckmarkCircleOutline className="text-custom-primary text-2xl" />
+                            <h5 key={index} className="flex gap-2">
+                                <IoMdCheckmarkCircleOutline className="text-custom-primary text-3xl font-normal" />
                                 {service}
-                            </h6>
+                            </h5>
                         ))}
                     </div>
                     <div className="grid gap-6 w-fit">
                         {secondSetOfAdditionalServices?.map((service,index)=>(
-                            <h6 key={index} className="flex gap-2">
-                                <IoMdCheckmarkCircleOutline className="text-custom-primary text-2xl" />
+                            <h5 key={index} className="flex gap-2">
+                                <IoMdCheckmarkCircleOutline className="text-custom-primary text-3xl font-normal" />
                                 {service}
-                            </h6>
+                            </h5>
                         ))}
                     </div>
                 </div>

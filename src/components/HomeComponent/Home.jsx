@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import HomeHeroSection from './HomeHeroSection';
 import ServicesSection from './ServicesSection';
 import AdditionalServicesSction from './AdditionalServicesSction';
+import ServiceProcess from './ServiceProcess';
 
 const Home = () => {
     return (
@@ -12,8 +13,8 @@ const Home = () => {
             <HomeHeroSection/>
             <ServicesSection/>
             <AdditionalServicesSction/>
+            <ServiceProcess/>
         </main>
-        
     );
 };
 

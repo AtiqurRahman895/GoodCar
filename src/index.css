@@ -9,28 +9,29 @@
 
 @layer base {
 
-    h1, h2, h3, h4, h5, h6{
+    /* h1, h2, h3, h4, h5, h6{
         @apply font-bold;
-    }
+    } */
 
   h1 {
-    @apply text-[clamp(1.75rem,1.1578947368421053rem+2.9605263157894735vw,4rem)];
+    @apply text-[clamp(1.75rem,1.1578947368421053rem+2.9605263157894735vw,4rem)] font-bold;
   }
   h2 {
-    @apply text-[clamp(1.5rem,1.236842105263158rem+1.3157894736842104vw,2.5rem)];
+    @apply text-[clamp(1.7rem,1.3285714285714285rem+1.8571428571428572vw,3rem)] font-bold;
   }
+
   h3 {
-    @apply text-[clamp(1.75rem,1.6842105263157894rem+0.3289473684210526vw,2rem)];
+    @apply text-[clamp(1.6rem,1.342857142857143rem+1.2857142857142856vw,2.5rem)] font-bold;
   }
   
   h4 {
-    @apply text-[1.5rem];
+    @apply text-[1.4rem] font-semibold;
   }
   h5 {
     @apply text-[1.25rem];
   }
   h6 {
-    @apply text-[1rem] ;
+    @apply text-[1rem];
   }
   * {
     @apply scroll-smooth;
