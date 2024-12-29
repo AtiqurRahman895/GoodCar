@@ -11,10 +11,12 @@ const Base = () => {
 
   const [users, setUsers] = useState([]);
   const [lightTheme, setLightTheme]=useState(false)
+  const [searchQuery, setSearchQuery] = useState("All");
 
   const value={
     users, setUsers,
     lightTheme, setLightTheme,
+    searchQuery, setSearchQuery
   }
 
   return (

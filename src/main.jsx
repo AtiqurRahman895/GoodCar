@@ -17,6 +17,7 @@ import ForgotPassword from "./components/AuthenticationComponent/ForgotPassword"
 import Home from './components/HomeComponent/Home';
 import Services from './components/ServicesComponent/Services';
 import AddBlog from "./components/AddBlogComponent/AddBlog";
+import AllBlogs from "./components/AllBlogsComponent/AllBlogs";
 import axios from 'axios';
 
 const router = createBrowserRouter([
@@ -42,10 +43,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // {
-      //   path: "/all_blogs",
-      //   element: <AllBlogs />,
-      // },
+      {
+        path: "/blogs",
+        element: <AllBlogs />,
+      },
       // {
       //   path: "/blog/:_id",
       //   loader: async ({ params }) => {

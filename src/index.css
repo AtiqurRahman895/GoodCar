@@ -91,12 +91,12 @@
   }
 
   .primaryButton2{
-    @apply cursor-pointer text-center text-sm text-nowrap font-bold rounded-sm duration-500 text-custom-primary bg-white border border-custom-primary hover:shadow-sm 
+    @apply cursor-pointer text-center text-sm text-nowrap font-bold rounded-md duration-500 text-custom-primary bg-transparent border border-custom-primary hover:shadow-sm 
   }
   .activePrimaryButton2{
     @apply hover:bg-custom-primary hover:text-white
   }
-  
+
   .joinedFilterButton{
     @apply bg-white duration-500 hover:bg-custom-primary btn join-item border border-gray-300 hover:border-gray-300 text-inherit
   }

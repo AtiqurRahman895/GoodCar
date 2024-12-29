@@ -1,7 +1,9 @@
 // import AddToWishlistButton from "../CommonComponents/AddToWishlistButton";
+import { useLocation } from "react-router-dom";
 import ReadThisBlogButton from "../CommonComponents/ReadThisBlogButton";
 
 const RecentBlogCard = ({ blog }) => {
+  const location=useLocation()
   return (
     <div className="space-y-5 mb-10">
       <img
@@ -13,7 +15,7 @@ const RecentBlogCard = ({ blog }) => {
         <h6 className="text-custom-primary font-bold text-center text-sm">
           - {blog.category} -
         </h6>
-        <h4 className="text-center text-black px-4 font-Cinzel font-normal">
+        <h4 className={`${location.pathname==="/"?"text-black":"text-white"} text-center px-4 font-Cinzel font-normal`}>
           {blog.title}
         </h4>
         <p className="mt-2 first-letter:text-custom-primary first-letter:text-3xl first-letter:font-Cinzel">
