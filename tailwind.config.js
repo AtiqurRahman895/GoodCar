@@ -24,6 +24,7 @@ export default {
         'manrope': ["Manrope", 'sans-serif'],
         'rubik': ["Rubik Glitch", 'serif'],
         'faster': ["Faster One", 'serif'],
+        'Cinzel': ["Cinzel", 'serif'],
       },
       colors: {
         'custom-primary': '#e8092e',

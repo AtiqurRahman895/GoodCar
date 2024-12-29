@@ -16,6 +16,8 @@ import ChangePassword from "./components/AuthenticationComponent/ChangePassword"
 import ForgotPassword from "./components/AuthenticationComponent/ForgotPassword";
 import Home from './components/HomeComponent/Home';
 import Services from './components/ServicesComponent/Services';
+import AddBlog from "./components/AddBlogComponent/AddBlog";
+import axios from 'axios';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,46 @@ const router = createBrowserRouter([
         path: "/services",
         element: <Services />,
       },
+      {
+        path: "/add_blog",
+        element: (
+          <PrivateRoute>
+            <AddBlog />
+          </PrivateRoute>
+        ),
+      },
+      // {
+      //   path: "/all_blogs",
+      //   element: <AllBlogs />,
+      // },
+      // {
+      //   path: "/blog/:_id",
+      //   loader: async ({ params }) => {
+      //     const res = await axios.get(
+      //       `https://ph-11-assignment-server.vercel.app/blog/${params._id}`
+      //     );
+      //     return res.data;
+      //   },
+      //   element: (
+      //     <ScrollProgress>
+      //       <Blog />
+      //     </ScrollProgress>
+      //   ),
+      // },
+      // {
+      //   path: "/update_blog/:_id",
+      //   loader: async ({ params }) => {
+      //     const res = await axios.get(
+      //       `https://ph-11-assignment-server.vercel.app/blog/${params._id}`
+      //     );
+      //     return res.data;
+      //   },
+      //   element: (
+      //     <PrivateRoute>
+      //       <UpdateBlog />
+      //     </PrivateRoute>
+      //   ),
+      // },
 
       // Authentication
       {

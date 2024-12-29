@@ -85,7 +85,7 @@ Ask any local person to know about the road...`,
       };
 
     return (
-        <section className='py-16 bg-black'>
+        <section className='py-16 '>
             <div className="container space-y-8">
                 <div className="bg-[rgba(121,121,121,.3)] p-6 rounded-md flex flex-col justify-between items-center md:flex-row gap-6">
                     <div className="grid justify-items-center md:justify-items-start">

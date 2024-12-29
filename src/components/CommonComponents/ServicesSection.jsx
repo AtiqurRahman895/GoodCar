@@ -57,7 +57,7 @@ const ServicesSection = () => {
     },
   ];
   return (
-    <section className="py-16">
+    <section className="py-16 bg-white">
       <div className="container space-y-8">
         {
           location.pathname === "/" && 

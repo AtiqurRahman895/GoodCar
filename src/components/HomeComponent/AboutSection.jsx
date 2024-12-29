@@ -9,7 +9,7 @@ const AboutSection = () => {
         "Genuine parts for lasting results.",
     ]
     return (
-        <section className="pb-16 lg:pb-10 bg-black">
+        <section className="pb-16 lg:pb-10 ">
             <div className="container grid grid-cols-1 lg:grid-cols-2 gap-x-6 items-center">
                 <div className="aboutImages duration-500">
                     <img src={`https://i.ibb.co.com/sV5XWmW/about-Image1.jpg`} alt="" className="aboutImage1 hover:z-10 translate-y-[15%] hover:border-r-[15px] hover:border-b-[15px]" />

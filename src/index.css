@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
 
 /* src/styles.css */
 @tailwind base;
@@ -37,7 +39,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply text-black-font bg-white overflow-x-hidden font-manrope font-medium;
+    @apply text-black-font bg-black overflow-x-hidden font-manrope font-medium;
   }
   p,
   span,
@@ -53,6 +55,9 @@
   }
   footer a{
     @apply hover:text-custom-primary hover:font-bold 
+  }
+  .ql-toolbar.ql-snow {
+    background-color: white !important;
   }
 
   /* input,
@@ -84,6 +89,14 @@
   .activePrimaryButton{
     @apply hover:bg-custom-half-primary hover:text-custom-primary
   }
+
+  .primaryButton2{
+    @apply cursor-pointer text-center text-sm text-nowrap font-bold rounded-sm duration-500 text-custom-primary bg-white border border-custom-primary hover:shadow-sm 
+  }
+  .activePrimaryButton2{
+    @apply hover:bg-custom-primary hover:text-white
+  }
+  
   .joinedFilterButton{
     @apply bg-white duration-500 hover:bg-custom-primary btn join-item border border-gray-300 hover:border-gray-300 text-inherit
   }
@@ -211,9 +224,29 @@
   background-color: #6868682b !important;
 
 }
-
 .invalid{
   @apply border focus:border-rose-300
+}
+
+/* ADD BLOG  */
+
+.input-box:has(.input-field:focus-within) .input-label{
+  display: none;
+}
+.itsLongDispriction{
+  line-height: 1.6rem;
+}
+.itsLongDispriction p{
+  margin-bottom: 8px !important;
+}
+.itsLongDispriction h4{
+  margin-block: 20px !important;
+}
+.itsLongDispriction h5{
+  margin-block: 12px !important;
+}
+.itsLongDispriction h6{
+  margin-block: 8px !important;
 }
 
 

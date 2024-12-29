@@ -44,7 +44,7 @@ const Header = () => {
   // console.log(location.pathname)
 
   return (
-      <header ref={headerRef} className={`fixed text-white top-0 z-50 w-full py-2`}>
+      <header ref={headerRef} className={`${location.pathname==="/add_blog"?"sticky":"fixed text-white"}  text-white top-0 z-50 w-full py-2`}>
         <div className={`navbar container`}>
           <div className="navbar-start">
 

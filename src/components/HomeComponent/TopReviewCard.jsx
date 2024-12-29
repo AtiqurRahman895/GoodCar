@@ -2,7 +2,7 @@
 const TopReviewCard = ({review}) => {
     return (
         <a href={review.review_link} target="_blank" className="">
-            <div className="bg-white rounded-md md:mx-3 p-6">
+            <div className="bg-white rounded-md mx-0.5 md:mx-3 p-6">
                 <p>{review.review}</p>
                 <div className="divider my-2"></div>
                 <div className="flex justify-between">

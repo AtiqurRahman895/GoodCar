@@ -1,85 +1,115 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updatePassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updatePassword,
+  updateProfile,
+} from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
+import axios from "axios";
 
-export const AuthContext= createContext()
+export const AuthContext = createContext();
 
-const AuthProvider = ({children}) => {
-    const [user,setUser]=useState(null)
-    const [loading,setLoading]=useState(true)
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    const googleProvider= new GoogleAuthProvider()
-    const loginWithGoogle=()=>{
-        return signInWithPopup(auth,googleProvider)
-    }
+  const googleProvider = new GoogleAuthProvider();
+  const loginWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
-    const creatUser=(email,password)=>{
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
+  const creatUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-    const updateUserProfile=(displayName,photoURL)=>{
-        return updateProfile(auth.currentUser, {
-            displayName, photoURL
-        })
-    }
-    const ChangePassword=(newPassword)=>{
-        return updatePassword(auth.currentUser, newPassword)
-    }
+  const updateUserProfile = (displayName, photoURL) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName,
+      photoURL,
+    });
+  };
+  const ChangePassword = (newPassword) => {
+    setLoading(true);
+    return updatePassword(auth.currentUser, newPassword);
+  };
 
-    const sendResetEmail=(email)=>{
-        return sendPasswordResetEmail(auth, email)
-    }
+  const sendResetEmail = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
 
-    const loginUser=(email,password)=>{
-        return signInWithEmailAndPassword(auth, email, password)
-    }
+  const loginUser = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
-    const logoutUser=()=>{
-        return signOut(auth)
-    }
+  const logoutUser = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
-    const verifyAccount=()=>{
-        sendEmailVerification(auth.currentUser)
-        .then(() => {
-            toast.info("Verification email sent! Please check your inbox to verify your account.")
-        }).catch((error) => {
-            toast.error(error.message?error.message:error.code)
+  const verifyAccount = () => {
+    setLoading(true);
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        toast.info(
+          "Verification email sent! Please check your inbox to verify your account."
+        );
+      })
+      .catch((error) => {
+        toast.error(error.message ? error.message : error.code);
+      });
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    const unsubscribeUser = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      if (currentUser?.email) {
+        const user = { email: currentUser.email };
+        axios.post("http://localhost:8080/jwt", user, {
+          withCredentials: true,
         });
-        setLoading(false)
+      } else {
+        axios.get("http://localhost:8080/logout", {
+          withCredentials: true,
+        });
+      }
+      setLoading(false);
+    });
 
-    }
+    return () => {
+      unsubscribeUser();
+    };
+  }, []);
 
-    useEffect(()=>{
-        const unsubscribeUser= onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-            setLoading(false)
-          });
+  const value = {
+    user,
+    setUser,
+    creatUser,
+    updateUserProfile,
+    loginUser,
+    logoutUser,
+    loading,
+    setLoading,
+    verifyAccount,
+    ChangePassword,
+    sendResetEmail,
+    loginWithGoogle,
+  };
 
-        return()=>{
-            unsubscribeUser()
-            
-        }
-    },[])
-
-
-
-    const value={
-        user,
-        setUser,
-        creatUser,
-        updateUserProfile,
-        loginUser,
-        logoutUser,
-        loading,
-        setLoading,
-        verifyAccount,
-        ChangePassword,
-        sendResetEmail,
-        loginWithGoogle,
-    }
-
-    return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;
