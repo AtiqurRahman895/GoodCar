@@ -25,7 +25,7 @@ const HomeBanner = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
             {
                 cardInfoList.map((cardInfo,index)=>(
-                    <Link key={index} to={cardInfo.link} target={index!==0 &&"_blank"}
+                    <Link key={index} to={cardInfo.link} target={index!==0?"_blank":""}
                      className="relative overflow-hidden bg-white hover:bg-custom-primary 
                     [&>*]:hover:text-white px-6 py-12 lg:py-16 rounded-md duration-500">
                         

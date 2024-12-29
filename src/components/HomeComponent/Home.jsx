@@ -1,23 +1,23 @@
-import { Helmet } from 'react-helmet-async';
-import HomeHeroSection from './HomeHeroSection';
-import ServicesSection from './ServicesSection';
-import AdditionalServicesSction from './AdditionalServicesSction';
-import ServiceProcessSection from './ServiceProcessSection';
-import AppoinmentSection from './AppoinmentSection';
+import { Helmet } from "react-helmet-async";
+import HomeHeroSection from "./HomeHeroSection";
+import ServicesSection from "../CommonComponents/ServicesSection";
+import ServiceProcessSection from "../CommonComponents/ServiceProcessSection";
+import AppoinmentSection from "../CommonComponents/AppoinmentSection";
+import AboutSection from "./AboutSection";
 
 const Home = () => {
-    return (
-        <main className=''>
-            <Helmet>
-                <title>Home | GOOD CAR</title>
-            </Helmet>
-            <HomeHeroSection/>
-            <ServicesSection/>
-            <AdditionalServicesSction/>
-            <ServiceProcessSection/>
-            <AppoinmentSection/>
-        </main>
-    );
+  return (
+    <main className="">
+      <Helmet>
+        <title>Home | GOOD CAR</title>
+      </Helmet>
+      <HomeHeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <ServiceProcessSection />
+      <AppoinmentSection />
+    </main>
+  );
 };
 
 export default Home;

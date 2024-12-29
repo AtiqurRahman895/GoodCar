@@ -5,9 +5,10 @@ import NavMenus from "./NavMenus";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
+import AdminNavMenus from "./AdminNavMenus";
 // import { GoUnverified } from "react-icons/go";
 
-const Header = () => {
+const AdminHeader = () => {
     const location= useLocation() 
     useEffect(() => {
       const path= location.pathname
@@ -64,7 +65,7 @@ const Header = () => {
           </div>
           <div className="navbar-center hidden lg:inline-block">
             <ul className="menu menu-horizontal px-1 grid lg:flex items-center justify-items-center">
-              <NavMenus/>
+              <AdminNavMenus/>
             </ul>
           </div>
           <div className="navbar-end">
@@ -132,4 +133,4 @@ const Header = () => {
     
 // };
 
-export default Header;
+export default AdminHeader;

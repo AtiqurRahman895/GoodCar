@@ -9,7 +9,7 @@ const ServiceCard = ({service}) => {
                 <p>Service and Repair</p>
                 <h4 className="">{service.name}</h4>
                 <div className="flex justify-between items-baseline">
-                    <Link to={`/service/${service.link}`} className="text-custom-primary cursor-pointer py-2 flex items-center gap-1 font-bold">
+                    <Link to={`/service/${service.link}`} className="text-custom-primary cursor-pointer py-2 flex items-center gap-1 font-bold [&_svg]:hover:ml-1">
                         View Details <GoArrowRight /> 
                     </Link>
                     <ReactSVG src={service.svg} className="w-20 text-custom-primary" />

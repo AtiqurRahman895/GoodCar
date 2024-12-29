@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { RiCalendarScheduleFill } from "react-icons/ri";
 
-const NavMenus = () => {
+const AdminNavMenus = () => {
 
   return (
     <>
@@ -20,10 +20,6 @@ const NavMenus = () => {
         <NavLink to={"/aboutUs"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><BiSolidMessageAltDetail />About Us</NavLink>
       </li> */}
       
-      <li className="w-fit">
-        <NavLink to={"/services"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdMiscellaneousServices />Services</NavLink>
-      </li>
-
       {/* <li className="w-fit">
         <NavLink to={"/products"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><AiFillProduct className="text-[16px]" />Products</NavLink>
       </li> */}
@@ -38,10 +34,15 @@ const NavMenus = () => {
 
       <li className="w-fit">
         <NavLink to={"/blogs"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><IoNewspaper />Blogs</NavLink>
-      </li>      
+      </li>   
+
+      <li className="w-fit">
+        <NavLink to={"/Addblogs"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><IoNewspaper />Add Blog</NavLink>
+      </li>
+   
 
     </>
   );
 };
 
-export default NavMenus;
+export default AdminNavMenus;

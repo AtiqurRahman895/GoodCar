@@ -1,6 +1,9 @@
+import { useLocation } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 
 const ServiceProcessSection = () => {
+      const location = useLocation();
+    
     const processList=[
         {
             svg:"./processSvg/Appointment.svg",
@@ -32,11 +35,11 @@ const ServiceProcessSection = () => {
     ]
 
     return (
-        <section className="py-16 mb-6 bg-white">
+        <section className={`py-16 ${location.pathname==="/"?"bg-[linear-gradient(0deg,rgba(255,255,255,1)35%,rgba(30,30,30,1)35%)]":"bg-white"}`}>
             <div className="container space-y-8">
                 <div className="text-center font-bold">
                     <h6 className="text-custom-primary">How We Work</h6>
-                    <h2 className="text-black">Our Process</h2>
+                    <h2 className={`${location.pathname==="/"?"text-white":"text-black"}`}>Our Process</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
