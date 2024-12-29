@@ -4,6 +4,7 @@ import ServicesSection from "../CommonComponents/ServicesSection";
 import ServiceProcessSection from "../CommonComponents/ServiceProcessSection";
 import AppoinmentSection from "../CommonComponents/AppoinmentSection";
 import AboutSection from "./AboutSection";
+import ReviewsSection from "./ReviewsSection";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <AboutSection />
       <ServicesSection />
       <ServiceProcessSection />
+      <ReviewsSection />
       <AppoinmentSection />
     </main>
   );

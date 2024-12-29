@@ -1,21 +1,19 @@
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import aboutImage1 from "../../assets/aboutImage1.jpg"
-import aboutImage2 from "../../assets/aboutImage2.jpg"
 
 const AboutSection = () => {
     const keyPoints=[
-        "Repair all brands car",
-        "We have leading car engineering exparts",
-        "Offers multiple services & free diagnosis",
-        "We have multiple car repair locations",
-        "Original products",
+        "Repairs for all car brands.",
+        "Experienced car engineering experts",
+        "Multiple convenient service locations.",
+        "Free and accurate diagnostics.",
+        "Genuine parts for lasting results.",
     ]
     return (
         <section className="pb-16 lg:pb-10 bg-black">
             <div className="container grid grid-cols-1 lg:grid-cols-2 gap-x-6 items-center">
                 <div className="aboutImages duration-500">
-                    <img src={aboutImage1} alt="" className="aboutImage1 hover:z-10 translate-y-[15%] hover:border-r-[15px] hover:border-b-[15px]" />
-                    <img src={aboutImage2} alt="" className="aboutImage2 float-end -translate-y-[15%] hover:border-l-[15px] hover:border-t-[15px] " />
+                    <img src={`https://i.ibb.co.com/sV5XWmW/about-Image1.jpg`} alt="" className="aboutImage1 hover:z-10 translate-y-[15%] hover:border-r-[15px] hover:border-b-[15px]" />
+                    <img src={`https://i.ibb.co.com/5ssbBNx/about-Image2.jpg`} alt="" className="aboutImage2 float-end -translate-y-[15%] hover:border-l-[15px] hover:border-t-[15px] " />
                 </div>
 
                 <div className="space-y-6">
@@ -24,15 +22,18 @@ const AboutSection = () => {
                         <h2 className={`${location.pathname==="/"?"text-white":"text-black"}`}>Good Car <br /> Service & Repair</h2>
                     </div>
                         <p>
-                            Car repair quisque sodales dui ut varius vestibulum drana tortor turpis porttiton 
-                            tellus eu euismod nisl massa ut odio in the miss volume placerat urna, a lacinia 
-                            eros nunta urna mauris, vehicula rutrum tempus in the interdum felis.
+                            We are your trusted partner for all automotive needs. We specialize in providing
+                             top-notch car repair and maintenance services to ensure your vehicle performs at
+                             its best. Our dedicated team of experienced car engineers is committed to delivering
+                             excellent service with a focus on quality and reliability.
                         </p>
-                        <div className="text-white">
+                        
+                        <div className="text-white space-y-2">
+                            <h6 className="text-custom-primary font-bold">What set us apart:</h6>
                             {
                                 keyPoints.map((point,index)=>(
                                     <div key={index} className="flex items-center gap-2">
-                                        <IoMdCheckmarkCircleOutline className="text-custom-primary font-normal" />
+                                        <IoMdCheckmarkCircleOutline className="text-custom-primary" />
                                         <b className="">
                                             {point}
                                         </b>

@@ -1,4 +1,5 @@
-import { useLocation } from "react-router-dom";
+import { GoArrowRight } from "react-icons/go";
+import { Link, useLocation } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 
 const ServiceProcessSection = () => {
@@ -35,7 +36,7 @@ const ServiceProcessSection = () => {
     ]
 
     return (
-        <section className={`py-16 ${location.pathname==="/"?"bg-[linear-gradient(0deg,rgba(255,255,255,1)35%,rgba(30,30,30,1)35%)]":"bg-white"}`}>
+        <section className={`py-16`} style={{background:`${location.pathname==="/"?"linear-gradient(0deg, rgba(255,255,255,1) 33%, rgba(30,30,30,1) 48%)":"white"}`}}>
             <div className="container space-y-8">
                 <div className="text-center font-bold">
                     <h6 className="text-custom-primary">How We Work</h6>
@@ -58,6 +59,12 @@ const ServiceProcessSection = () => {
                         ))
                     }
                 </div>
+
+                {location.pathname === "/" && 
+                <div className="text-center flex justify-center font-bold">
+                    <a href="#AppoinmentSection" type="button" className='primaryButton activePrimaryButton mt-4'>Book Now</a>
+                </div>
+                }
             </div>
         </section>
     );

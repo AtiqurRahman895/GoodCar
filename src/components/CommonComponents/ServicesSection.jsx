@@ -76,6 +76,12 @@ const ServicesSection = () => {
 
         {location.pathname === "/" && 
           <div className="text-center flex justify-center font-bold">
+              <Link to={"/services"} type="button" className='primaryButton activePrimaryButton !py-3 flex items-center justify-center [&_svg]:hover:ml-1'>See all services <GoArrowRight /></Link>
+          </div>
+        }
+
+        {/* {location.pathname === "/" && 
+          <div className="text-center flex justify-center font-bold">
             <Link
               to={"/services"}
               className="text-custom-primary w-fit flex items-center justify-center [&_svg]:hover:ml-1"
@@ -83,7 +89,8 @@ const ServicesSection = () => {
               <h6>See all services</h6> <GoArrowRight />
             </Link>
           </div>
-        }
+        } */}
+
       </div>
     </section>
   );

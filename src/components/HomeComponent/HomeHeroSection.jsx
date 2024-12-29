@@ -6,6 +6,7 @@ import HomeBanner from './HomeBanner';
 import { useRef } from 'react';
 import useBannerHeightWidth from '../../Hooks/useBannerHeightWidth';
 import { Fade } from 'react-awesome-reveal';
+import { Link } from 'react-router-dom';
 
 const HomeHeroSection = () => {
     const BannerRef=useRef(null)
@@ -50,12 +51,8 @@ const HomeHeroSection = () => {
                             <div key={index} className="h-[100svh] hero-overlay bg-opacity-15">
                                 <div className="sectionHeaderWidth text-center h-[100%] flex flex-col justify-center items-center gap-2 text-white">
                                     <h1 className="">{slide.title}</h1>
-                                    {/* <h5 className="px-6 sectionHeaderSubtextWidth">{slide.subtext}</h5> */}
-                                    {/* <div className="hidden lg:grid justify-items-center mt-20">
-                                        <GiMouse className="text-4xl"/>
-                                        <p className="text-xs">Scroll Down</p>
-                                    </div> */}
-                                    <button type="button" className='primaryButton activePrimaryButton mt-4'>Book Now</button>
+
+                                    <a href="#AppoinmentSection" type="button" className='primaryButton activePrimaryButton mt-4'>Book Now</a>
                                 </div>
                             </div>
                         ))

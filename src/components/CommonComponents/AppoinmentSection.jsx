@@ -77,7 +77,7 @@ const AppoinmentSection = () => {
     };
 
     return (
-        <section className={`py-20 bg-[url(https://i.ibb.co.com/gmj5DCF/appointment.jpg)] bg-right bg-fixed`}>
+        <section id="AppoinmentSection" className={`py-20 bg-[url(https://i.ibb.co.com/gmj5DCF/appointment.jpg)] bg-right bg-fixed`}>
             <div className="container flex flex-col md:flex-row items-start gap-8 md:gap-4 text-white">
                 <div className="">
                     <div className="xs:w-[90%] xl:w-[70%]">
