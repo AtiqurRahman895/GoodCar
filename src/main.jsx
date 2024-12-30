@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
@@ -19,6 +19,12 @@ import Services from './components/ServicesComponent/Services';
 import AddBlog from "./components/AddBlogComponent/AddBlog";
 import AllBlogs from "./components/AllBlogsComponent/AllBlogs";
 import axios from 'axios';
+import ScrollProgress from "./components/BlogComponent/ScrollProgress";
+import Blog from "./components/BlogComponent/Blog";
+import AdminRoute from './components/AuthenticationComponent/AdminRoute';
+import AdminBase from './components/BaseComponent/AdminBase';
+
+
 
 const router = createBrowserRouter([
   {
@@ -36,36 +42,36 @@ const router = createBrowserRouter([
         element: <Services />,
       },
       {
-        path: "/add_blog",
+        path: "/add_blog/",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <AddBlog />
-          </PrivateRoute>
+          </AdminRoute>
         ),
       },
       {
         path: "/blogs",
         element: <AllBlogs />,
       },
-      // {
-      //   path: "/blog/:_id",
-      //   loader: async ({ params }) => {
-      //     const res = await axios.get(
-      //       `https://ph-11-assignment-server.vercel.app/blog/${params._id}`
-      //     );
-      //     return res.data;
-      //   },
-      //   element: (
-      //     <ScrollProgress>
-      //       <Blog />
-      //     </ScrollProgress>
-      //   ),
-      // },
+      {
+        path: "/blog/:_id",
+        loader: async ({ params }) => {
+          const res = await axios.get(
+            `http://localhost:8080/blog/${params._id}`
+          );
+          return res.data;
+        },
+        element: (
+          <ScrollProgress>
+            <Blog />
+          </ScrollProgress>
+        ),
+      },
       // {
       //   path: "/update_blog/:_id",
       //   loader: async ({ params }) => {
       //     const res = await axios.get(
-      //       `https://ph-11-assignment-server.vercel.app/blog/${params._id}`
+      //       `http://localhost:8080/blog/${params._id}`
       //     );
       //     return res.data;
       //   },
@@ -107,6 +113,7 @@ const router = createBrowserRouter([
       },
     ]
   },
+
 ]);
 
 createRoot(document.getElementById('root')).render(

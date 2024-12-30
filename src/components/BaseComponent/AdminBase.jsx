@@ -1,5 +1,3 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
 
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
@@ -11,10 +9,12 @@ const AdminBase = () => {
 
   const [users, setUsers] = useState([]);
   const [lightTheme, setLightTheme]=useState(false)
+  const [searchQuery, setSearchQuery] = useState("All");
 
   const value={
     users, setUsers,
     lightTheme, setLightTheme,
+    searchQuery, setSearchQuery
   }
 
   return (

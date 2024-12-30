@@ -112,7 +112,7 @@ const Register = () => {
 
                         <input onChange={handlePasswordInputChanges} type={showPassword?"text":"password"} name="password" id="password" className="input input-ghost input-bordered" value={password} required />
 
-                        <button onClick={()=>setShowPassword(!showPassword)} type="button" className="btn btn-ghost btn-circle btn-sm absolute right-4 top-11">
+                        <button onClick={()=>setShowPassword(!showPassword)} type="button" className="btn btn-ghost btn-circle btn-sm absolute right-4 top-[3.2rem]">
                             {showPassword?<IoIosEye className="text-[20px]" />:<IoIosEyeOff className="text-[20px]" />}
                         </button>
                         

@@ -33,6 +33,7 @@ const AddBlog = () => {
   const [good_long_discription, setGood_long_discription] = useState(false);
   const [word_count, setWord_count] = useState(0);
 
+
   const handleSubmit = (e) => {
     const short_discription_word_count = short_discription
       .replace(/<[^>]*>/g, " ")

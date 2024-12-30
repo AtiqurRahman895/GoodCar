@@ -13,7 +13,7 @@ const AdminNavMenus = () => {
   return (
     <>
       <li className="w-fit">
-        <NavLink to={"/"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><AiFillHome /> Home</NavLink>
+        <NavLink to={"/admin"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><AiFillHome /> Home</NavLink>
       </li>
 
       {/* <li className="w-fit">
@@ -29,7 +29,7 @@ const AdminNavMenus = () => {
       </li> */}
 
       <li className="w-fit">
-        <NavLink to={"/add_blog"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdRateReview />Add Blog</NavLink>
+        <NavLink to={"/admin/add_blog"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdRateReview />Add Blog</NavLink>
       </li>
 
       <li className="w-fit">

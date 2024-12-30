@@ -7,8 +7,12 @@ import { MdMiscellaneousServices, MdRateReview } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { RiCalendarScheduleFill } from "react-icons/ri";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const NavMenus = () => {
+  const {user}=useContext(AuthContext)
+  const adminUsers=["emonhassan895@gmail.com"]
 
   return (
     <>
@@ -19,14 +23,24 @@ const NavMenus = () => {
       {/* <li className="w-fit">
         <NavLink to={"/aboutUs"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><BiSolidMessageAltDetail />About Us</NavLink>
       </li> */}
-      
-      <li className="w-fit">
-        <NavLink to={"/services"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdMiscellaneousServices />Services</NavLink>
-      </li>
 
-      <li className="w-fit">
-        <NavLink to={"/add_blog"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdRateReview />Add Blog</NavLink>
-      </li>
+      {
+        user && adminUsers.includes(user.email)?
+        <>
+        <li className="w-fit">
+          <NavLink to={"/add_blog"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdRateReview />Add Blog</NavLink>
+        </li>
+        </>:
+        <>
+        <li className="w-fit">
+          <NavLink to={"/services"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdMiscellaneousServices />Services</NavLink>
+        </li>
+        </>
+      }
+      
+
+
+
 
       {/* <li className="w-fit">
         <NavLink to={"/products"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><AiFillProduct className="text-[16px]" />Products</NavLink>

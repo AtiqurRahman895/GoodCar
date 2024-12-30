@@ -77,7 +77,7 @@ const ChangePassword = () => {
 
                             <input type={showOldPassword?"text":"password"} name="oldPassword" id="oldPassword" className="input input-bordered" required />
 
-                            <button onClick={()=>setShowOldPassword(!showOldPassword)} type="button" className="btn btn-circle btn-sm absolute right-4 top-11">
+                            <button onClick={()=>setShowOldPassword(!showOldPassword)} type="button" className="btn btn-circle btn-sm absolute right-4 top-[3.2rem]">
                                 {showOldPassword?<IoIosEye className="text-[20px]" />:<IoIosEyeOff className="text-[20px]" />}
                             </button>
 
@@ -90,7 +90,7 @@ const ChangePassword = () => {
 
                             <input onChange={handlePasswordInputChanges} type={showPassword?"text":"password"} name="password" id="password" className="input input-ghost input-bordered" value={password} required />
 
-                            <button onClick={()=>setShowPassword(!showPassword)} type="button" className="btn btn-ghost btn-circle btn-sm  absolute right-4 top-11">
+                            <button onClick={()=>setShowPassword(!showPassword)} type="button" className="btn btn-ghost btn-circle btn-sm  absolute right-4 top-[3.2rem]" aria-label={showPassword ? 'Hide password' : 'Show password'}>
                                 {showPassword?<IoIosEye className="text-[20px]" />:<IoIosEyeOff className="text-[20px]" />}
                             </button>
 
@@ -100,6 +100,7 @@ const ChangePassword = () => {
                                 </label>
                             }
                         </div>
+                        
 
                         <div className="form-control mt-6">
                             <button className="formSubmitBtn">Change</button>
