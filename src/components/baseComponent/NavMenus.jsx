@@ -1,18 +1,17 @@
 
 
-import { AiFillHome, AiFillProduct } from "react-icons/ai";
-import { FaHeart } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
 import { IoNewspaper } from "react-icons/io5";
 import { MdMiscellaneousServices, MdRateReview } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { RiCalendarScheduleFill } from "react-icons/ri";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const NavMenus = () => {
   const {user}=useContext(AuthContext)
-  const adminUsers=["emonhassan895@gmail.com"]
+  const adminUsers=["emonhassan895@gmail.com",] // In NavMenus.jsx, AdminRoute.jsx, server
+
 
   return (
     <>

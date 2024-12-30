@@ -3,12 +3,13 @@
 // import { Tooltip } from "react-tooltip";
 // import { AuthContext } from "../../Provider/AuthProvider";
 // import { toast } from "react-toastify";
-// import axios from "axios";
 // import { useNavigate } from "react-router-dom";
+// import useAxios from "../../Hooks/useAxios";
 
 // const AddToWishlistButton = ({ _id, image, title, category, buttonClass, iconClass,}) => {
 //   const navigate = useNavigate();
 //   const { user, logoutUser } = useContext(AuthContext);
+//   const {secureAxios}= useAxios()
 
 //   const handleWishlistButton = () => {
 //     if (!user) {
@@ -19,27 +20,15 @@
 //     }
 //     const params = { query: { blog_id: _id, user_email: user.email } };
 
-//     axios
-//       .get("http://localhost:8080/Wishlist", {
-//         params,
-//         withCredentials: true,
-//       })
+//     secureAxios.get("/Wishlist", {params})
 //       .then((res) => {
 //         if (res.data.length > 0) {
 //           toast.info("You have already added this blog to the wishlist once!");
 //           return Promise.reject("Already in wishlist");
 //         }
-//         const wishlistCredentials = {
-//           blog_id: _id,
-//           image,
-//           title,
-//           category,
-//           user_email: user.email,
-//         };
-//         return axios.post(
-//           "http://localhost:8080/addToWishlist",
-//           wishlistCredentials
-//         );
+//         const wishlistCredentials = { blog_id: _id, image, title, category, user_email: user.email,};
+
+//         return secureAxios.post("/addToWishlist", wishlistCredentials );
 //       })
 //       .then(() => {
 //         toast.success(`You have successfully added This blog to the wishlist!`);

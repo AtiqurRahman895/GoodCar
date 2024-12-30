@@ -4,9 +4,13 @@ import { toast } from "react-toastify";
 import Loading from "../AuthenticationComponent/Loading";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxios from "../../Hooks/useAxios";
+
 const BlogCommentSection = ({ blog_id, author_email }) => {
   const navigate = useNavigate();
   const { user,logoutUser } = useContext(AuthContext);
+  const {normalAxios, secureAxios}= useAxios()
+
 
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -16,8 +20,7 @@ const BlogCommentSection = ({ blog_id, author_email }) => {
     const params = { query: { blog_id }, sort: { _id: 1 } };
     // setLoading(true);
     // console.log("its loading!");
-    axios
-      .get("http://localhost:8080/comments", { params })
+    normalAxios.get("/comments", { params })
       .then((res) => {
         // console.log(res.data)
         if (res.data.length === 0) {
@@ -61,11 +64,8 @@ const BlogCommentSection = ({ blog_id, author_email }) => {
     };
 
     setLoading(true);
-    axios
-      .post(
-        "http://localhost:8080/addComment", commentCredentials, {
-          withCredentials: true,
-        })
+    
+    secureAxios.post("/addComment", commentCredentials )
       .then(() => {
         e.target.reset();
         toast.success("You have successfully added a Comment on this blog!");

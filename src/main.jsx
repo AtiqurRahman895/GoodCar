@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
@@ -18,11 +18,12 @@ import Home from './components/HomeComponent/Home';
 import Services from './components/ServicesComponent/Services';
 import AddBlog from "./components/AddBlogComponent/AddBlog";
 import AllBlogs from "./components/AllBlogsComponent/AllBlogs";
-import axios from 'axios';
+import {normalAxios} from "./Hooks/useAxios"
 import ScrollProgress from "./components/BlogComponent/ScrollProgress";
 import Blog from "./components/BlogComponent/Blog";
 import AdminRoute from './components/AuthenticationComponent/AdminRoute';
-import AdminBase from './components/BaseComponent/AdminBase';
+// import AdminBase from './components/BaseComponent/AdminBase';
+import UpdateBlog from './components/UpdateBlogComponent/UpdateBlog';
 
 
 
@@ -56,9 +57,7 @@ const router = createBrowserRouter([
       {
         path: "/blog/:_id",
         loader: async ({ params }) => {
-          const res = await axios.get(
-            `http://localhost:8080/blog/${params._id}`
-          );
+          const res = await normalAxios.get(`/blog/${params._id}`);
           return res.data;
         },
         element: (
@@ -67,20 +66,18 @@ const router = createBrowserRouter([
           </ScrollProgress>
         ),
       },
-      // {
-      //   path: "/update_blog/:_id",
-      //   loader: async ({ params }) => {
-      //     const res = await axios.get(
-      //       `http://localhost:8080/blog/${params._id}`
-      //     );
-      //     return res.data;
-      //   },
-      //   element: (
-      //     <PrivateRoute>
-      //       <UpdateBlog />
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: "/update_blog/:_id",
+        loader: async ({ params }) => {
+          const res = await normalAxios.get(`/blog/${params._id}`);
+          return res.data;
+        },
+        element: (
+          <AdminRoute>
+            <UpdateBlog />
+          </AdminRoute>
+        ),
+      },
 
       // Authentication
       {

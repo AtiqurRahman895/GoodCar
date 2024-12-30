@@ -1,16 +1,26 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import { toast } from "react-toastify";
 
 const AdminRoute = ({children}) => {
-    const {user,loading}=useContext(AuthContext)
-    const adminUsers=["emonhassan895@gmail.com"]
+    const navigate = useNavigate();
+    const {user,loading,logoutUser}=useContext(AuthContext)
+
+    const adminUsers=["emonhassan895@gmail.com",] // In NavMenus.jsx, AdminRoute.jsx, server
+
     if(loading){
         return <Loading/>
     }
-    if(user && adminUsers.includes(user.email)){
-        return children
+    if(user){
+        if(adminUsers.includes(user.email)){
+            return children
+        }else{
+            logoutUser();
+            toast.error("You are not authorized to enter this page!");
+            navigate("/login");
+        }
     }
     return <Navigate to={"/login"}></Navigate>
 };

@@ -7,7 +7,7 @@ const UpdateBlogButton = ({_id,buttonClass,iconClass}) => {
   return (
         <>
           <Link
-            to={`/admin/update_blog/${_id}`}
+            to={`/update_blog/${_id}`}
             className={`ReadThisBlogButton primaryButton2 activePrimaryButton2 ${buttonClass}`}
           >
             <CgPen className={`${iconClass}`} />

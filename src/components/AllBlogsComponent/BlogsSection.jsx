@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import Loading from "../AuthenticationComponent/Loading";
 import TopScrollBar from "./TopScrollBar";
 import RecentBlogCard from "../HomeComponent/RecentBlogCard";
 import { TransferLists } from "../../Contexts/TransferLists";
+import useAxios from "../../Hooks/useAxios";
 
 const BlogsSection = () => {
-  const { searchQuery, setSearchQuery } = useContext(TransferLists);
+  const {normalAxios}= useAxios()
+
+  const { searchQuery } = useContext(TransferLists);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -19,12 +21,13 @@ const BlogsSection = () => {
           ? { category: null }
           : { $text: { $search: searchQuery } },
     };
+
     setLoading(true);
 
-    axios
-      .get("http://localhost:8080/blogs", { params })
+    normalAxios.get("/blogs", { params })
       .then((res) => {
         if (res.data.length === 0) {
+          setBlogs([])
           setNotFound(true);
         } else {
           setBlogs(res.data);

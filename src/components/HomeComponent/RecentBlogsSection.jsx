@@ -1,11 +1,13 @@
 import Masonry from "react-responsive-masonry";
 import useScreenWidth from "../../Hooks/useScreenWidth";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Loading from "../AuthenticationComponent/Loading";
 import RecentBlogCard from "./RecentBlogCard";
+import useAxios from "../../Hooks/useAxios";
 
 const RecentBlogsSection = () => {
+  const {normalAxios}= useAxios()
+
   const screenWidth = useScreenWidth();
   const [columnsCount, setColumnsCount] = useState();
 
@@ -25,9 +27,10 @@ const RecentBlogsSection = () => {
 
   useEffect(() => {
     const params = { limit: 3, sort: { _id: -1 } };
+
     setLoading(true);
-    axios
-      .get("http://localhost:8080/blogs", { params })
+
+    normalAxios.get("/blogs", { params })
       .then((res) => {
         // console.log(res.data)
         res.data.length === 0 ? setNotFound(true) : setRecentBlogs(res.data);

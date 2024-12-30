@@ -3,16 +3,17 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import ImageInputSection from "./ImageInputSection";
 import ShortDiscriptionSection from "./ShortDiscriptionSection";
 import LongDiscriptionSection from "./LongDiscriptionSection";
 import CategoryInputSection from "./CategoryInputSection";
 import TitleInputSection from "./TitleInputSection";
+import useAxios from "../../Hooks/useAxios";
 
 const AddBlog = () => {
   const navigate = useNavigate();
   const { user, logoutUser } = useContext(AuthContext);
+  const {secureAxios}= useAxios()
 
   const [image, setImage] = useState();
   const [goodImage, setGoodImage] = useState(false);
@@ -79,18 +80,12 @@ const AddBlog = () => {
 
     console.log(blogCredentials)
 
-    axios
-      .post("http://localhost:8080/addBlog", blogCredentials, {
-        withCredentials: true,
-      })
+    secureAxios.post("/addBlog", blogCredentials )
       .then(() => {
         toast.success("You have successfully added a Blog!");
         const categoryCredentials = { category };
         e.target.reset();
-        return axios.put(
-          "http://localhost:8080/updateCategory",
-          categoryCredentials
-        );
+        return secureAxios.put("/updateCategory", categoryCredentials );
 
       })
       .catch((error) => {
