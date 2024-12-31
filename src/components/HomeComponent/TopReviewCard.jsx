@@ -1,3 +1,4 @@
+import { FaQuoteLeft } from "react-icons/fa";
 
 const TopReviewCard = ({review}) => {
     return (
@@ -5,7 +6,7 @@ const TopReviewCard = ({review}) => {
             <div className="bg-white rounded-md mx-0.5 md:mx-3 p-6">
                 <p>{review.review}</p>
                 <div className="divider my-2"></div>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                     <div className="flex gap-2 items-center">
                         <img
                             alt="User Photo"
@@ -15,9 +16,10 @@ const TopReviewCard = ({review}) => {
                         <div className="space-y-0">
                             <h6 className="text-black">{review.reviewer}</h6>
                             <p className="leading-snug" >Customer</p>
-                        </div>
-                        
+                        </div>                        
                     </div>
+
+                    <FaQuoteLeft className="text-4xl text-custom-half-primary"/>
                 </div>
                 
             </div>

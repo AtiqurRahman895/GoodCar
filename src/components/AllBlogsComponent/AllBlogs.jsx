@@ -8,7 +8,7 @@ const AllBlogs = () => {
     return (
         <main className='space-y-10'>
             <Helmet>
-                <title>All Blogs | MORE BLOGS</title>
+                <title>All Blogs | GOOD CAR</title>
             </Helmet>
             <CommonHeroSection
                 headerTitle={headerTitle}

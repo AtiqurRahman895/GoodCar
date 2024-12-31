@@ -27,7 +27,7 @@ const Blog = () => {
   return (
     <main className="mb-6 space-y-8">
       <Helmet>
-        <title>{title} | MORE BLOGS</title>
+        <title>{title} | GOOD CAR</title>
       </Helmet>
       {!blogInfo ? (
         <Loading />

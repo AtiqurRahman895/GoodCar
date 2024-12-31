@@ -13,7 +13,7 @@ import useAxios from "../../Hooks/useAxios";
 const AddBlog = () => {
   const navigate = useNavigate();
   const { user, logoutUser } = useContext(AuthContext);
-  const {secureAxios}= useAxios()
+  const { secureAxios } = useAxios();
 
   const [image, setImage] = useState();
   const [goodImage, setGoodImage] = useState(false);
@@ -30,10 +30,9 @@ const AddBlog = () => {
 
   const [short_discription, setShort_discription] = useState("");
 
-  const [long_discription, setLong_discription] = useState("");
-  const [good_long_discription, setGood_long_discription] = useState(false);
+  const [rawQuillValue, setRawQuillValue] = useState("");
+  const [long_discription, setLong_discription] = useState(false);
   const [word_count, setWord_count] = useState(0);
-
 
   const handleSubmit = (e) => {
     const short_discription_word_count = short_discription
@@ -74,19 +73,19 @@ const AddBlog = () => {
       author_email,
       published,
       short_discription,
-      long_discription: good_long_discription,
+      long_discription,
       word_count,
     };
 
-    console.log(blogCredentials)
+    console.log(blogCredentials);
 
-    secureAxios.post("/addBlog", blogCredentials )
+    secureAxios
+      .post("/addBlog", blogCredentials)
       .then(() => {
         toast.success("You have successfully added a Blog!");
         const categoryCredentials = { category };
         e.target.reset();
-        return secureAxios.put("/updateCategory", categoryCredentials );
-
+        return secureAxios.put("/updateCategory", categoryCredentials);
       })
       .catch((error) => {
         if (error.status === 401 || error.status === 403) {
@@ -105,7 +104,7 @@ const AddBlog = () => {
   return (
     <main className="">
       <Helmet>
-        <title>Add Blog | MORE BLOGS</title>
+        <title>Add Blog | GOOD CAR</title>
       </Helmet>
       <form onSubmit={handleSubmit} className="mb-6 space-y-8">
         <ImageInputSection
@@ -137,10 +136,10 @@ const AddBlog = () => {
         />
 
         <LongDiscriptionSection
+          rawQuillValue={rawQuillValue}
+          setRawQuillValue={setRawQuillValue}
           long_discription={long_discription}
           setLong_discription={setLong_discription}
-          good_long_discription={good_long_discription}
-          setGood_long_discription={setGood_long_discription}
           word_count={word_count}
           setWord_count={setWord_count}
         />

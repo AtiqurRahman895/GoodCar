@@ -16,15 +16,12 @@ const BlogsSection = () => {
   useEffect(() => {
     // console.log(typeof searchQuery)
     const params = {
-      query:
-        searchQuery == "All"
-          ? { category: null }
-          : { $text: { $search: searchQuery } },
+      query:{ $text: { $search: searchQuery } },
     };
 
     setLoading(true);
 
-    normalAxios.get("/blogs", { params })
+    normalAxios.get("/blogs", searchQuery !== "All" && { params })
       .then((res) => {
         if (res.data.length === 0) {
           setBlogs([])

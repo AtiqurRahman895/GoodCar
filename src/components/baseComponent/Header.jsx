@@ -65,7 +65,7 @@ const Header = () => {
 
           </div>
           <div className="navbar-center hidden lg:inline-block">
-            <ul className="menu menu-horizontal px-1 grid lg:flex items-center justify-items-center">
+            <ul className="menu menu-horizontal px-1 grid lg:flex items-center justify-items-center !list-none !space-y-0 !m-0">
               <NavMenus/>
             </ul>
           </div>
@@ -99,7 +99,7 @@ const Header = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm space-y-2 text-black-font">
+                    className="menu menu-sm text-black-font">
 
                     {user.emailVerified || <li className="hover:scale-105 duration-200"><p onClick={verifyAccount} className="font-bold text-black"> Verify now </p></li>}
 

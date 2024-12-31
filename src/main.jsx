@@ -24,6 +24,7 @@ import Blog from "./components/BlogComponent/Blog";
 import AdminRoute from './components/AuthenticationComponent/AdminRoute';
 // import AdminBase from './components/BaseComponent/AdminBase';
 import UpdateBlog from './components/UpdateBlogComponent/UpdateBlog';
+import Service from './components/ServiceComponent/service';
 
 
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/service/:_id",
+        element: <Service />,
       },
       {
         path: "/add_blog/",

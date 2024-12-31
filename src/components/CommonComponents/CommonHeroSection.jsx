@@ -1,13 +1,13 @@
 
-const CommonHeroSection = ({headerTitle,headerSubTitle}) => {
+const CommonHeroSection = ({heroImage,heroTitle,heroSubTitle}) => {
     return (
         <section className={``}>
-                <div className={`bg-[url(https://i.ibb.co.com/NpS7T3c/performance.jpg)] bg-center bg-cover bg-no-repeat `}>
-                    <div className="h-[60svh] container text-white text-center flex flex-col justify-center font-bold">
+                <div className={`bg-center bg-cover bg-no-repeat `} style={{backgroundImage:`url(${heroImage})`}}>
+                    <div className="h-[70svh] container text-white text-center flex flex-col justify-center font-bold">
                         {
-                            headerSubTitle&&<h6 className="text-custom-primary">{headerSubTitle}</h6>
+                            heroSubTitle&&<h6 className="text-custom-primary">{heroSubTitle}</h6>
                         }
-                        <h2 className='sectionHeaderWidth'>{headerTitle}</h2>
+                        <h2 className='sectionHeaderWidth'>{heroTitle}</h2>
                     </div>
                 </div> 
 

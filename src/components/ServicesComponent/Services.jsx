@@ -6,16 +6,18 @@ import ServiceProcessSection from "../CommonComponents/ServiceProcessSection";
 import AppoinmentSection from "../CommonComponents/AppoinmentSection";
 
 const Services = () => {
-  const headerTitle = "Our Services";
-  const headerSubTitle = "What We Do";
+  const heroImage ="https://i.ibb.co.com/NpS7T3c/performance.jpg"
+  const heroTitle = "Our Services";
+  const heroSubTitle = "What We Do";
   return (
     <main className="">
       <Helmet>
         <title>Services | GOOD CAR</title>
       </Helmet>
       <CommonHeroSection
-        headerTitle={headerTitle}
-        headerSubTitle={headerSubTitle}
+        heroImage={heroImage}
+        heroTitle={heroTitle}
+        heroSubTitle={heroSubTitle}
       />
       <ServicesSection />
       <AdditionalServicesSction />

@@ -1,0 +1,63 @@
+[
+    {
+      "service_name": "Transmission Repair & Service",
+      "short_name": "Transmission",
+      "short_discription": "At Good Car, we specialize in providing reliable and efficient transmission repair and service. Whether you’re facing slipping gears, delayed shifting, or unusual noises, our experts are here to diagnose and fix the issue promptly.",
+      "why_important": "Your car's transmission is responsible for transferring power from the engine to the wheels. A faulty transmission can lead to poor performance, increased fuel consumption, and even total vehicle breakdown. Regular maintenance ensures your car operates smoothly and extends its lifespan.",
+      "why_us": "<ul><li>Certified technicians with years of experience in transmission systems.</li><li>Advanced diagnostic tools for accurate problem identification.</li><li>Affordable pricing with a focus on long-lasting solutions.</li></ul>",
+      "includes": "<ul><li>Fluid replacement for optimal performance.</li><li>Repairs for manual and automatic transmissions.</li><li>Complete rebuilds for severely damaged systems.</li></ul>",
+      "image": "https://i.ibb.co.com/09q7twb/transmission.jpg",
+      "svg": "./serviceSvg/Transmission.svg"
+    },
+    {
+      "service_name": "Brake Repair & Service",
+      "short_name": "Brake",
+      "short_discription": "Brakes are a vital safety feature of your vehicle, and at Good Car, we ensure they perform flawlessly. From worn-out brake pads to fluid leaks, we offer comprehensive brake repair and maintenance services.",
+      "why_important": "Faulty brakes compromise your safety and the safety of others on the road. Ignoring brake issues can lead to accidents, higher repair costs, and reduced vehicle reliability. Regular brake maintenance ensures effective stopping power and peace of mind while driving.",
+      "why_us": "<ul><li>Top-quality brake components to ensure maximum safety.</li><li>Thorough inspections to identify hidden issues.</li><li>Fast and efficient service to get you back on the road.</li></ul>",
+      "includes": "<ul><li>Brake pad replacement for smoother stops.</li><li>Brake fluid flushes to maintain hydraulic power.</li><li>Caliper and rotor repairs for enhanced performance.</li></ul>",
+      "image": "https://i.ibb.co.com/NTWc3k6/breaking.jpg",
+      "svg": "./serviceSvg/Break.svg"
+    },
+    {
+      "service_name": "Engine Repair & Service",
+      "short_name": "Engine",
+      "short_discription": "The engine is the heart of your vehicle, and at Good Car, we provide comprehensive engine repair and maintenance services to keep it running like new.",
+      "why_important": "A healthy engine ensures optimal vehicle performance, fuel efficiency, and reliability. Neglecting engine problems can lead to costly repairs and potentially render your car inoperable. Routine servicing helps prevent breakdowns and extends the engine's life.",
+      "why_us": "<ul><li>Expert diagnostics to pinpoint and resolve engine issues.</li><li>Skilled technicians for everything from minor fixes to major overhauls.</li><li>Genuine parts and components for maximum durability.</li></ul>",
+      "includes": "<ul><li>Oil changes and filter replacements.</li><li>Spark plug replacements to improve fuel efficiency.</li><li>Major engine repairs for issues like overheating or knocking sounds.</li></ul>",
+      "image": "https://i.ibb.co.com/MVczhgC/engine.jpg",
+      "svg": "./serviceSvg/Engine.svg"
+    },
+    {
+      "service_name": "Tyre & Wheels Repair",
+      "short_name": "Tyre & Wheels",
+      "short_discription": "At Good Car, we offer professional tire and wheel repair services that ensure your vehicle stays safe and stable on the road. Whether you have a flat tire or a bent wheel, our team has you covered.",
+      "why_important": "Tires and wheels are crucial for road safety and driving comfort. Damaged or misaligned wheels can lead to uneven tire wear, reduced fuel efficiency, and compromised handling. Regular checks and repairs enhance performance and prevent accidents.",
+      "why_us": "<ul><li>Advanced tools for precision repairs.</li><li>Affordable pricing for all tire and wheel services.</li><li>Experts in handling all makes and models of cars.</li></ul>",
+      "includes": "<ul><li>Puncture repairs to restore your tire’s integrity.</li><li>Wheel alignment and balancing for a smoother ride.</li><li>Rim straightening and crack repairs for a flawless finish.</li></ul>",
+      "image": "https://i.ibb.co.com/JmqfLC5/tyre.jpg",
+      "svg": "./serviceSvg/Tyre_&_Wheels.svg"
+    },
+    {
+      "service_name": "Painting & Denting Repair",
+      "short_name": "Painting & Denting",
+      "short_discription": "Restore your car’s beauty with Good Car’s professional painting and denting services. Whether it’s a minor scratch or major body damage, we ensure your car looks as good as new.",
+      "why_important": "Your car’s appearance not only affects its resale value but also protects it from rust and other long-term damage. Prompt repairs can prevent minor issues from becoming costly repairs while keeping your car looking fresh and well-maintained.",
+      "why_us": "<ul><li>State-of-the-art equipment for a perfect finish.</li><li>Durable, high-quality paint for long-lasting results.</li><li>Skilled technicians for seamless dent removal.</li></ul>",
+      "includes": "<ul><li>Full-body painting for a brand-new look.</li><li>Dent repair without damaging your car’s original paint.</li><li>Color matching for a flawless appearance.</li></ul>",
+      "image": "https://i.ibb.co.com/PgcSh2q/painting.jpg",
+      "svg": "./serviceSvg/Painting_&_Denting.svg"
+    },
+    {
+      "service_name": "Air Conditioner Repair & Service",
+      "short_name": "Air Conditioner",
+      "short_discription": "Stay cool on the road with Good Car’s air conditioning repair and service. From refrigerant refills to fixing compressor issues, we ensure your car’s AC works efficiently in every season.",
+      "why_important": "A malfunctioning AC can make driving uncomfortable and reduce air quality inside the car. Ignoring AC issues can lead to more expensive repairs and affect your vehicle's electrical systems. Regular maintenance ensures optimal cooling and prolongs the life of your AC system.",
+      "why_us": "<ul><li>Advanced diagnostics to identify AC problems quickly.</li><li>Skilled technicians with expertise in modern AC systems.</li><li>Affordable services with no compromise on quality.</li></ul>",
+      "includes": "<ul><li>Refrigerant recharge for optimal cooling</li><li>Compressor and condenser repairs.</li><li>Cleaning and maintenance of AC ducts and vents.</li></ul>",
+      "image": "https://i.ibb.co.com/zPbgzzT/ac.jpg",
+      "svg": "./serviceSvg/Air_Conditioner.svg"
+    }
+  ]
+  

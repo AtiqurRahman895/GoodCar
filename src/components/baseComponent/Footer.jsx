@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="footer footer-center text-white gap-14 rounded">
                     {/* <img src={logo} alt="Discout PRO" className="w-[200px] md:w-[300px]"/> */}
                     <h1 className="text-custom-primary font-faster uppercase">Good Car</h1>
-                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+                    <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 !list-none !space-y-0 m-0">
                         <NavMenus/>
                     </ul>
                     <nav>

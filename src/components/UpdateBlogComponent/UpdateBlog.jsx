@@ -34,10 +34,10 @@ const UpdateBlog = () => {
     blogInfo.short_discription
   );
 
-  const [long_discription, setLong_discription] = useState(
+  const [rawQuillValue, setRawQuillValue] = useState(
     blogInfo.long_discription
   );
-  const [good_long_discription, setGood_long_discription] = useState(
+  const [long_discription, setLong_discription] = useState(
     blogInfo.long_discription
   );
   const [word_count, setWord_count] = useState(blogInfo.word_count);
@@ -80,7 +80,7 @@ const UpdateBlog = () => {
       category,
       title,
       short_discription,
-      long_discription: good_long_discription,
+      long_discription,
       word_count,
       author_email: blogInfo.author_email,
     };
@@ -142,10 +142,10 @@ const UpdateBlog = () => {
           />
 
           <LongDiscriptionSection
+            rawQuillValue={rawQuillValue}
+            setRawQuillValue={setRawQuillValue}
             long_discription={long_discription}
             setLong_discription={setLong_discription}
-            good_long_discription={good_long_discription}
-            setGood_long_discription={setGood_long_discription}
             word_count={word_count}
             setWord_count={setWord_count}
           />

@@ -114,7 +114,7 @@ Ask any local person to know about the road...`,
                     </div>
 
                         <a href="https://search.google.com/local/writereview?placeid=ChIJzfZLo3m_VTcRbMKm1ELxleM"
-                         target="_blank" type="button" className='primaryButton activePrimaryButton !py-3 flex items-center 
+                         target="_blank" type="button" className='primaryButton activePrimaryButton !py-2.5 flex items-center 
                          justify-center [&_svg]:hover:ml-1'>
                             Review Us On Google <GoArrowRight />
                         </a>
@@ -131,7 +131,7 @@ Ask any local person to know about the road...`,
 
                 <div className="text-center flex justify-center font-bold">
                     <a href="https://search.google.com/local/reviews?placeid=ChIJzfZLo3m_VTcRbMKm1ELxleM" 
-                     target="_blank"  type="button" className='primaryButton activePrimaryButton !py-3 flex 
+                     target="_blank"  type="button" className='primaryButton activePrimaryButton !py-2.5 flex 
                      items-center justify-center [&_svg]:hover:ml-1'>
                         More Google Reviews <GoArrowRight />
                     </a>

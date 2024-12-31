@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const normalAxios = axios.create({
-    baseURL: 'https://good-car-server.vercel.app/',
+    baseURL: 'http://localhost:8080',
 });
 
 export const secureAxios = axios.create({
-    baseURL: 'https://good-car-server.vercel.app/',
+    baseURL: 'http://localhost:8080',
     withCredentials: true
 });
 
