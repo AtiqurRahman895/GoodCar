@@ -6,16 +6,19 @@ import { ReactSVG } from 'react-svg';
 const HomeBanner = () => {
     const cardInfoList=[
         {
+            text: "Call us",
             link:"tel:+8801400447787",
             svg: "./bannerSvg/Phone.svg",
             info:"01400447787",
         },
         {
+            text: "Drop an email",
             link:"mailto:goodcar@gmail.com",
             svg: "./bannerSvg/Email.svg",
             info:"goodcar@gmail.com",
         },
         {
+            text: "Our Location",
             link:"http://maps.apple.com/?q=av.+Washington+165,+NY+CA+54003",
             svg: "./bannerSvg/Location.svg",
             info:"D-44 Dhamrai, Dhaka",
@@ -30,10 +33,9 @@ const HomeBanner = () => {
                     [&>*]:hover:text-white px-6 py-12 lg:py-16 rounded-md duration-500">
                         
                         <ReactSVG src={cardInfo.svg} className='w-16 text-custom-primary mb-2'/>
-                        <h5 className='text-black'>Call us</h5>
+                        <h5 className='text-black'>{cardInfo.text}</h5>
                         <p>{cardInfo.info}</p>
                         <ReactSVG src={cardInfo.svg} className='absolute -right-1 -bottom-1 opacity-20 w-32'/>
-        
                     </Link>
                 ))
             }

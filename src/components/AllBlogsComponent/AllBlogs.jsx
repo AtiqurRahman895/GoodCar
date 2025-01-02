@@ -6,14 +6,14 @@ const AllBlogs = () => {
     const headerTitle = "Our Latest BLogs";
     const headerSubTitle = "Read & Learn";
     return (
-        <main className='space-y-10'>
+        <main className='my-16'>
             <Helmet>
                 <title>All Blogs | GOOD CAR</title>
             </Helmet>
-            <CommonHeroSection
+            {/* <CommonHeroSection
                 headerTitle={headerTitle}
                 headerSubTitle={headerSubTitle}
-            />
+            /> */}
             <BlogsSection />
 
         </main>

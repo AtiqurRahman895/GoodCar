@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import CommonHeroSection from "../CommonComponents/CommonHeroSection";
 import AdditionalServicesSction from "../CommonComponents/AdditionalServicesSction";
 import ServiceProcessSection from "../CommonComponents/ServiceProcessSection";
-import AppoinmentSection from "../CommonComponents/AppoinmentSection";
+import AppointmentSection from "../CommonComponents/AppointmentSection";
 import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { TransferLists } from "../../Contexts/TransferLists";
@@ -55,9 +55,9 @@ const Service = () => {
                 />
 
                 <section className="pt-10 pb-16">
-                    <div className="container grid sm:block lg:flex space-y-8">
+                    <div className="container grid  sm:block lg:flex ">
                         
-                        <div tabIndex={0} className={`join join-vertical flex-shrink-0 w-full order-last sm:order-first sm:w-52 z-20 sm:float-start sm:mr-8 sm:mb-3`} >
+                        <div tabIndex={0} className={`join join-vertical flex-shrink-0 w-full order-last sm:order-first sm:w-52 z-20 sm:float-start sm:mr-8 mt-8 sm:mt-3`} >
                             {
                                 mainServices.map(((service,index)=>(
                                     <Link to={`/service/${service._id}`} key={index} className={`${_id===service._id?"bg-custom-primary hover:bg-custom-primary text-white":"bg-transparent hover:bg-custom-half-primary text-black-font hover:text-custom-primary"} btn join-item border hover:scale-100 leading-normal h-fit p-2 border-custom-primary hover:border-custom-primary`}>{service.service_name}</Link>
@@ -71,7 +71,7 @@ const Service = () => {
 
                 <AdditionalServicesSction />
                 <ServiceProcessSection />
-                <AppoinmentSection />
+                <AppointmentSection />
                 </>
               )}
             </>

@@ -11,6 +11,8 @@ import useAxios from "../../Hooks/useAxios";
 const Base = () => {
   const {normalAxios}= useAxios()
 
+  const adminUsers=["emonhassan895@gmail.com",] 
+
   const [users, setUsers] = useState([]);
   const [lightTheme, setLightTheme]=useState(false)
   const [searchQuery, setSearchQuery] = useState("All");
@@ -63,12 +65,14 @@ const Base = () => {
     }, []);
 
   const value={
+    adminUsers,
     users, setUsers,
     lightTheme, setLightTheme,
     searchQuery, setSearchQuery,
     mainServices, setMainServices,
     loading, setLoading,
     notFound, setNotFound,
+    additionalServices,
   }
 
   return (

@@ -7,10 +7,11 @@ import { NavLink } from "react-router-dom";
 import { RiCalendarScheduleFill } from "react-icons/ri";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { TransferLists } from "../../Contexts/TransferLists";
 
 const NavMenus = () => {
   const {user}=useContext(AuthContext)
-  const adminUsers=["emonhassan895@gmail.com",] // In NavMenus.jsx, AdminRoute.jsx, server
+  const {adminUsers}=useContext(TransferLists)
 
 
   return (
@@ -37,7 +38,19 @@ const NavMenus = () => {
         </>
       }
       
-
+      {
+        user && adminUsers.includes(user.email)?
+        <>
+        <li className="w-fit">
+          <NavLink to={"/allAppoinments"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><RiCalendarScheduleFill />All Appoinments</NavLink>
+        </li>
+        </>:
+        <>
+        <li className="w-fit">
+          <NavLink to={"/myAppoinments"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><RiCalendarScheduleFill />My Appoinments</NavLink>
+        </li>
+        </>
+      }
 
 
 
@@ -49,9 +62,7 @@ const NavMenus = () => {
         <NavLink to={"/wishlist"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><FaHeart />My Wishlist</NavLink>
       </li> */}
 
-      <li className="w-fit">
-        <NavLink to={"/appoinments"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><RiCalendarScheduleFill />Appoinments</NavLink>
-      </li>
+      
 
       <li className="w-fit">
         <NavLink to={"/blogs"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><IoNewspaper />Blogs</NavLink>

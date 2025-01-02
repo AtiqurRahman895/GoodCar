@@ -99,11 +99,11 @@ const Header = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm text-black-font">
+                    className="menu menu-sm text-black-font !list-none !space-y-1 !m-0">
 
                     {user.emailVerified || <li className="hover:scale-105 duration-200"><p onClick={verifyAccount} className="font-bold text-black"> Verify now </p></li>}
 
-                    <li><Link to={"/update-profile"} className="">Update Profile</Link></li>
+                    {/* <li><Link to={"/update-profile"} className="">Update Profile</Link></li> */}
                     <li><Link to={"/change-password"} className="">Change Password</Link></li>
                     <li className="hover:scale-105 duration-200 sm:hidden"><p onClick={logoutUser}>Log Out</p></li>
                   </ul>

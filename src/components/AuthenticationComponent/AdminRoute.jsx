@@ -3,12 +3,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Navigate, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import { toast } from "react-toastify";
+import { TransferLists } from "../../Contexts/TransferLists";
 
 const AdminRoute = ({children}) => {
     const navigate = useNavigate();
     const {user,loading,logoutUser}=useContext(AuthContext)
+    const {adminUsers}=useContext(TransferLists)
 
-    const adminUsers=["emonhassan895@gmail.com",] // In NavMenus.jsx, AdminRoute.jsx, server
 
     if(loading){
         return <Loading/>

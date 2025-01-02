@@ -41,7 +41,7 @@ const BlogCommentSection = ({ blog_id, author_email }) => {
   const handleCommentSubmin = (e) => {
     e.preventDefault();
     if (!user?.email && !user?.displayName) {
-      toast.error(
+      toast.warning(
         "Currently you are not Logged in. Login first to comment on this Blog!"
       );
       navigate("/login");

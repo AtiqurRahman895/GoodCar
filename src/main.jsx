@@ -19,12 +19,16 @@ import Services from './components/ServicesComponent/Services';
 import AddBlog from "./components/AddBlogComponent/AddBlog";
 import AllBlogs from "./components/AllBlogsComponent/AllBlogs";
 import {normalAxios} from "./Hooks/useAxios"
+import {secureAxios} from "./Hooks/useAxios"
 import ScrollProgress from "./components/BlogComponent/ScrollProgress";
 import Blog from "./components/BlogComponent/Blog";
 import AdminRoute from './components/AuthenticationComponent/AdminRoute';
 // import AdminBase from './components/BaseComponent/AdminBase';
 import UpdateBlog from './components/UpdateBlogComponent/UpdateBlog';
 import Service from './components/ServiceComponent/service';
+import MyAppointments from './components/MyAppointmentsComponent/MyAppointments';
+import AllAppointments from './components/AllAppointmentsComponent/AllAppointments';
+import UpdateAppointment from './components/UpdateAppointmentComponent/UpdateAppointment';
 
 
 
@@ -48,7 +52,35 @@ const router = createBrowserRouter([
         element: <Service />,
       },
       {
-        path: "/add_blog/",
+        path: "/myAppoinments",
+        element: (
+          <PrivateRoute>
+            <MyAppointments />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/allAppoinments",
+        element: (
+          <AdminRoute>
+            <AllAppointments />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/update_appointment/:_id",
+        loader: async ({ params }) => {
+          const res = await secureAxios.get(`/appointment/${params._id}`);
+          return res.data;
+        },
+        element: (
+          <AdminRoute>
+            <UpdateAppointment />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/add_blog",
         element: (
           <AdminRoute>
             <AddBlog />

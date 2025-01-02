@@ -70,7 +70,7 @@ const Register = () => {
 
     }
     return (
-        <section>
+        <section className="mt-16">
             <div className="container hero flex items-center justify-center">
 
                 <div className="fromWrapper max-w-lg">

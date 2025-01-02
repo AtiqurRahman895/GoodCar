@@ -8,12 +8,12 @@ const UpdateBlogButton = ({_id,buttonClass,iconClass}) => {
         <>
           <Link
             to={`/update_blog/${_id}`}
-            className={`ReadThisBlogButton primaryButton2 activePrimaryButton2 ${buttonClass}`}
+            className={`UpdateBlogButton primaryButton2 activePrimaryButton2 ${buttonClass}`}
           >
             <CgPen className={`${iconClass}`} />
           </Link>
           <Tooltip
-            anchorSelect=".ReadThisBlogButton"
+            anchorSelect=".UpdateBlogButton"
             className="!bg-custom-primary"
           >
             Update this blog!

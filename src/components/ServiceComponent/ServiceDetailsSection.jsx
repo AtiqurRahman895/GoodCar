@@ -1,4 +1,3 @@
-import { ReactSVG } from "react-svg";
 
 const ServiceDetailsSection = ({service}) => {
     console.log(typeof service?.svg, service?.svg)

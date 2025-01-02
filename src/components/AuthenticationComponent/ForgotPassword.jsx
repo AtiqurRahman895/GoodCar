@@ -35,7 +35,7 @@ const ForgotPassword = () => {
     };
 
     return (
-        <section>
+        <section className='mt-16'>
             <div className="container hero flex items-center justify-center">
                 <div className="fromWrapper max-w-sm">
                     <h1 className="text-5xl font-bold">Forgot password?</h1>
