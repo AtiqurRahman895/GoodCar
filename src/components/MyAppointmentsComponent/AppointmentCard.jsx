@@ -16,22 +16,24 @@ const AppointmentCard = ({appointment,setLoading}) => {
     const {adminUsers}=useContext(TransferLists)
     const {secureAxios}= useAxios()
     const cardRef= useRef(null)
-    const [color, setColor] =useState('')
+    const [bgColor, setBgColor] =useState('')
     const {_id, name, phone, email, date, time, services, status}=appointment
     
+    // console.log(appointment)
+
 
     useEffect(()=>{
         if(status==="Scheduled"){
-            setColor("#e8092e")
+            setBgColor("bg-[#e8092e]")
 
         }else if(status==="In Progress"){
-            setColor("#1D9BF0")
+            setBgColor("bg-[#1D9BF0]")
 
         }else if(status==="Completed"){
-            setColor("#28a745")
+            setBgColor("bg-[#28a745]")
 
         }else{
-            setColor("#1e1e1e")
+            setBgColor("bg-[#1e1e1e]")
         }
     },[])
 
@@ -50,7 +52,7 @@ const AppointmentCard = ({appointment,setLoading}) => {
     })
 
     return (
-        <div ref={cardRef} className={`bg-[${color}] text-white p-6 rounded-md space-y-2 mb-6 md:mx-2 relative`}>
+        <div ref={cardRef} className={`${bgColor} text-white p-6 rounded-md space-y-2 mb-6 md:mx-2 relative`}>
 
             <h5 className="flex gap-1 items-center">
                 <FaArrowsSpin className="" />

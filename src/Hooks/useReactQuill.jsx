@@ -54,7 +54,7 @@ const useReactQuill = (setRawQuillValue,setLong_discription,setWord_count) => {
         const words = plainText.trim().split(/\s+/).filter(Boolean);
         setWord_count(words.length);
     
-        console.log(words);
+        // console.log(words);
     };
     
 

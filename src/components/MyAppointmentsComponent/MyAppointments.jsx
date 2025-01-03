@@ -33,6 +33,7 @@ const MyAppointments = () => {
         }
     }, [screenWidth]);
 
+
     useEffect(() => {
       
       const params={email:user?.email,sort:{_id:-1}}
@@ -89,6 +90,7 @@ const MyAppointments = () => {
                     <>
                     <section className="py-16 bg-white">
                         {/* <div className="container"> */}
+                        {/* <h1>{appointments.length}</h1> */}
                         <Masonry columnsCount={columnsCount} className="container">
                             {
                                 appointments.map((appointment,index)=>(

@@ -11,7 +11,7 @@ import useAxios from "../../Hooks/useAxios";
 const Base = () => {
   const {normalAxios}= useAxios()
 
-  const adminUsers=["emonhassan895@gmail.com",] 
+  const adminUsers=["emonhassan895@gmail.com","atiqemon98@gmail.com"] 
 
   const [users, setUsers] = useState([]);
   const [lightTheme, setLightTheme]=useState(false)

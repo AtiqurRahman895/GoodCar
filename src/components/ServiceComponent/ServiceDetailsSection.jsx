@@ -1,6 +1,6 @@
 
 const ServiceDetailsSection = ({service}) => {
-    console.log(typeof service?.svg, service?.svg)
+    // console.log(typeof service?.svg, service?.svg)
     return (
         <div className="itsLongDispriction">
             <p>{service?.short_discription}</p>
