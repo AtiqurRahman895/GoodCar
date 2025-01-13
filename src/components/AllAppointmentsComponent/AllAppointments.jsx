@@ -82,7 +82,7 @@ const AllAppointments = () => {
                             className="w-[200px]"
                         />
                         <h3 className="font-extrabold text-center text-custom-primary">
-                            Noone booked any appointments yet or Unable to load appointments!
+                            No one booked any appointments yet or Unable to load appointments!
                         </h3>
                     </div>
                 ) : (

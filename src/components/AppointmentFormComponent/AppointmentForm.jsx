@@ -3,14 +3,15 @@ import AppointmentDateTimeInput from "./AppointmentDateTimeInput";
 import MultiSelectOptions from "./MultiSelectOptions";
 import PhoneNumberInput from "./PhoneNumberInput";
 import { toast } from "react-toastify";
-import useAxios from "../../Hooks/useAxios";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { TransferLists } from "../../Contexts/TransferLists";
+
 import { useNavigate } from "react-router-dom";
 
 const AppointmentForm = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { secureAxios } = useAxios();
-  const { user, logoutUser } = useContext(AuthContext);
+  const {setAppointmentCredentials}=useContext(TransferLists)
 
   const [name, setName] = useState(user?.displayName || "");
   const [email, setEmail] = useState(user?.email || "");
@@ -61,24 +62,9 @@ const AppointmentForm = () => {
       status: "Scheduled",
     };
     // console.log(appointmentCredentials)
+    setAppointmentCredentials(appointmentCredentials)
+    navigate("/payment")
 
-    secureAxios
-      .post("/addAppointment", appointmentCredentials)
-      .then(() => {
-        e.target.reset();
-        toast.success(`You have successfully booked an appointment!`);
-      })
-      .catch((error) => {
-        if (error.status === 401 || error.status === 403) {
-          logoutUser();
-          toast.error(error.response.data.message);
-          navigate("/login");
-        }
-        console.error("Error booking an appointment:", error);
-        toast.error(
-          error.response?.data?.message || `Failed to book an appointment!`
-        );
-      });
   };
 
   return (

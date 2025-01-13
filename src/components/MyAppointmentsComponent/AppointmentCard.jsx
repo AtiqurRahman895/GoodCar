@@ -10,6 +10,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { TransferLists } from "../../Contexts/TransferLists";
 import UpdateAppointmentButton from "../CommonComponents/UpdateAppointmentButton";
+import { TbTransactionDollar } from "react-icons/tb";
 
 const AppointmentCard = ({appointment,setLoading}) => {
     const { user } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const AppointmentCard = ({appointment,setLoading}) => {
     const {secureAxios}= useAxios()
     const cardRef= useRef(null)
     const [bgColor, setBgColor] =useState('')
-    const {_id, name, phone, email, date, time, services, status}=appointment
+    const {_id, name, phone, email, date, time, services, status,transaction_id}=appointment
     
     // console.log(appointment)
 
@@ -111,6 +112,16 @@ const AppointmentCard = ({appointment,setLoading}) => {
                 </ol>
 
             </div>
+
+            <div className="flex flex-col items-center text-center px-2">
+                <b className="flex gap-1 items-center">
+                    <TbTransactionDollar className="" />
+                    Transaction id: 
+                </b>
+                <p className="text-xs font-medium">{transaction_id}</p>
+            </div>
+
+
 
 
 

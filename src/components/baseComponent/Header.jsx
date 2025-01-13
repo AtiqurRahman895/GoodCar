@@ -74,10 +74,11 @@ const Header = () => {
             {user? 
             <div className="flex items-center gap-2">
               <div className="dropdown dropdown-end dropdown-hover">
-                <div tabIndex={0} role="button" className="indicator rounded-full hover:shadow-xl mx-4 avatar">
-                  <div className="w-10 rounded-full">
+                <div tabIndex={0} role="button" className="indicator hover:shadow-xl sm:mx-4">
+                  <div className="w-10 aspect-square rounded-full overflow-hidden bg-white">
                     <img
                       alt="User Photo"
+                      // className="place-self-start"
                       src={user.photoURL?`${user.photoURL}`:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
                   </div>
                   {user.emailVerified &&
@@ -103,7 +104,7 @@ const Header = () => {
 
                     {user.emailVerified || <li className="hover:scale-105 duration-200"><p onClick={verifyAccount} className="font-bold text-black"> Verify now </p></li>}
 
-                    {/* <li><Link to={"/update-profile"} className="">Update Profile</Link></li> */}
+                    <li><Link to={"/update-profile"} className="">Update Profile</Link></li>
                     <li><Link to={"/change-password"} className="">Change Password</Link></li>
                     <li className="hover:scale-105 duration-200 sm:hidden"><p onClick={logoutUser}>Log Out</p></li>
                   </ul>

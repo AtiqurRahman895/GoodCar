@@ -29,6 +29,7 @@ import Service from './components/ServiceComponent/service';
 import MyAppointments from './components/MyAppointmentsComponent/MyAppointments';
 import AllAppointments from './components/AllAppointmentsComponent/AllAppointments';
 import UpdateAppointment from './components/UpdateAppointmentComponent/UpdateAppointment';
+import Payment from './components/PaymentComponent/Payment';
 
 
 
@@ -56,6 +57,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyAppointments />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/payment",
+        element: (
+          <PrivateRoute>
+            <Payment />
           </PrivateRoute>
         ),
       },

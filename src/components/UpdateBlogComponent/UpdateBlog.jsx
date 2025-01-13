@@ -20,7 +20,7 @@ const UpdateBlog = () => {
   // const {_id,image,category,title,author,author_email,published,short_discription,long_discription,word_count}=blogInfo&&blogInfo
 
   const [image, setImage] = useState(blogInfo?.image);
-  const [goodImage, setGoodImage] = useState(blogInfo?.image);
+  // const [goodImage, setGoodImage] = useState(blogInfo?.image);
 
   // const [category,setCategory]= useState(blogInfo?.category)
   const category = blogInfo?.category;
@@ -67,8 +67,8 @@ const UpdateBlog = () => {
         `Please lenghten Long Discription to 20 or more word! (Currently has ${word_count} words)`
       );
       return;
-    } else if (goodImage == false) {
-      toast.warning("Invalid image URL. Please provide a valid image!");
+    } else if (!image) {
+      toast.warning("You must upload a image. Only JPG, PNG, GIF image files are allowed, and the maximum file size is 10MB. Please select an appropriate image file to proceed!");
       return;
     }
 
@@ -119,8 +119,8 @@ const UpdateBlog = () => {
           <ImageInputSection
             image={image}
             setImage={setImage}
-            goodImage={goodImage}
-            setGoodImage={setGoodImage}
+            // goodImage={goodImage}
+            // setGoodImage={setGoodImage}
           />
 
           <section className="">

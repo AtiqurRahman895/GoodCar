@@ -16,6 +16,7 @@ const Base = () => {
   const [users, setUsers] = useState([]);
   const [lightTheme, setLightTheme]=useState(false)
   const [searchQuery, setSearchQuery] = useState("All");
+
   const additionalServices=[
     "Transmission Repair & Service",
     "Break Repair & Service",
@@ -41,6 +42,8 @@ const Base = () => {
   const [mainServices, setMainServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [appointmentCredentials, setAppointmentCredentials]=useState()
+  const [amount,setAmount]=useState(40)
 
     useEffect(() => {
   
@@ -73,6 +76,8 @@ const Base = () => {
     loading, setLoading,
     notFound, setNotFound,
     additionalServices,
+    appointmentCredentials, setAppointmentCredentials,
+    amount,setAmount,
   }
 
   return (
