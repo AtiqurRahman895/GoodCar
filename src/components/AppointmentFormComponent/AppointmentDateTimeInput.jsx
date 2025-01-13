@@ -9,7 +9,7 @@ const AppointmentDateTimeInput = ({date,setDate,time,setTime}) => {
         const today = new Date();
         const tomorrow = new Date();
         const nextWeek = new Date();
-        tomorrow.setDate(today.getDate());
+        tomorrow.setDate(today.getDate()+1);
         nextWeek.setDate(today.getDate() + 7);
 
         // Format dates to YYYY-MM-DD
