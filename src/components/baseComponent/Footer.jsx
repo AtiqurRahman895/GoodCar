@@ -35,7 +35,7 @@ const Footer = () => {
                         </div>
                     </nav>
                     <aside className="footerCopyRights">
-                        <p>All right reserved ©Chill Gamer -{new Date().getFullYear()}.<br className="lg:hidden" /> Developed by <a href="https://atiqur.pages.dev/"><b>Atiqur Rahman</b></a></p>
+                        <p>All right reserved ©Good Car -{new Date().getFullYear()}.<br className="lg:hidden" /> Developed by <a href="https://atiqur.pages.dev/"><b>Atiqur Rahman</b></a></p>
                     </aside>
                 </div>
             </div>

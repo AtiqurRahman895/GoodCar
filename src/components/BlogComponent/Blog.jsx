@@ -33,7 +33,7 @@ const Blog = () => {
         <Loading />
       ) : (
         <>
-          <header className="">
+          <section className="">
             <div className={`max-w-[1536px] mx-auto relative aspect-auto`}>
               <img
                 src={image}
@@ -41,7 +41,7 @@ const Blog = () => {
                 className="bg-custom-primary max-w-full m-auto"
               />
             </div>
-          </header>
+          </section>
 
           <section className="">
             <div className="container grid justify-items-center ">

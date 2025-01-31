@@ -9,25 +9,40 @@ const AppointmentDateTimeInput = ({date,setDate,time,setTime}) => {
         const today = new Date();
         const tomorrow = new Date();
         const nextWeek = new Date();
-        tomorrow.setDate(today.getDate());
+
+        tomorrow.setDate(today.getDate()+1);
         nextWeek.setDate(today.getDate() + 7);
+        // today.setDate(today.getDate());
+        
 
         // Format dates to YYYY-MM-DD
-        const formatDate = (Date) => Date.toISOString().split('T')[0];
+        const formatDate = (d) => d.toISOString().split('T')[0];
 
-        setMinDate(formatDate(tomorrow));
+        setMinDate(formatDate(today));
         setMaxDate(formatDate(nextWeek));
     }, []);
 
+    // const appointmentTimeList = [
+    //     {start:"09:00 AM",expire:"09:30 AM"},
+    //     {start:"10:00 AM",expire:"10:30 AM"},
+    //     {start:"12:00 PM",expire:"12:30 PM"},
+    //     {start:"03:00 PM",expire:"03:30 PM"},
+    //     {start:"05:00 PM",expire:"05:30 PM"},
+    //     {start:"07:00 PM",expire:"07:30 PM"},
+    //     {start:"09:00 PM",expire:"09:30 PM"},
+    // ];
+
     const appointmentTimeList = [
-        {start:"09:00 AM",expire:"09:30 AM"},
-        {start:"10:00 AM",expire:"10:30 AM"},
-        {start:"12:00 PM",expire:"12:30 PM"},
-        {start:"03:00 PM",expire:"03:30 PM"},
-        {start:"05:00 PM",expire:"05:30 PM"},
-        {start:"07:00 PM",expire:"07:30 PM"},
-        {start:"09:00 PM",expire:"09:30 PM"},
+        "09:00 AM",
+        "10:00 AM",
+        "12:00 PM",
+        "03:00 PM",
+        "05:00 PM",
+        "07:00 PM",
+        "09:00 PM",
     ];
+
+
 
     // console.log(typeof time)
 
@@ -47,8 +62,8 @@ const AppointmentDateTimeInput = ({date,setDate,time,setTime}) => {
                 <select onChange={(e)=>setTime(e.target.value)} value={time} name="time" id="time" className="select select-ghost select-bordered" required>
                     <option value={''} disabled hidden>Pick Time</option>
 
-                    {appointmentTimeList.map((Time, index) => (
-                        <option key={index} value={JSON.stringify(Time)}>{Time.start}</option>
+                    {appointmentTimeList.map((time, index) => (
+                        <option key={index} value={time}>{time}</option>
                     ))}
 
                 </select>

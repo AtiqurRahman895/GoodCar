@@ -7,8 +7,8 @@ const Timer = ({ date, time, handleTimeOut }) => {
   const [extraTime, setExtraTime] = useState(false);
 //   const [extraTime, setExtraTime] = useState(false);
 
-  const startAt = convertToISO(`${date}, ${time.start}`);
-  const expireAt = convertToISO(`${date}, ${time.expire}`);
+  const startAt = convertToISO(`${date}, ${time}`);
+  const expireAt = new Date(startAt.getTime() + 30 * 60 * 1000); // Add 30 minutes
 
 
   const initialRenderer = ({ days, hours, minutes, seconds }) => (

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { IoMdTime } from "react-icons/io";
 import { HiOutlineCalendarDateRange, HiOutlinePhone, HiOutlineUserCircle } from "react-icons/hi2";
 import { TfiEmail } from "react-icons/tfi";
@@ -38,19 +38,33 @@ const AppointmentCard = ({appointment,setLoading}) => {
         }
     },[])
 
-    const handleTimeOut=(()=>{
-        setLoading(true)
-        secureAxios.put('/expireAppointment',{user_email:user?.email,_id})
-        .then(()=>{
-            toast.warning(`Your appointment on ${date} has been expaired!`)
-        })
-        .catch((error)=>{
-            console.error("Failed to update appoinment status:", error);
-        })
-        .finally(()=>{
-          setLoading(false);
-        })
-    })
+    // const handleTimeOut=(()=>{
+    //     setLoading(true)
+    //     secureAxios.put('/expireAppointment',{user_email:user?.email,_id})
+    //     .then(()=>{
+    //         toast.warning(`Your appointment on ${date} has been expaired!`)
+    //     })
+    //     .catch((error)=>{
+    //         console.error("Failed to update appoinment status:", error);
+    //     })
+    //     .finally(()=>{
+    //       setLoading(false);
+    //     })
+    // })
+
+    const handleTimeOut = useCallback(() => {
+        setLoading(true);
+        secureAxios.put('/expireAppointment', { user_email: user?.email, _id })
+            .then(() => {
+                toast.warning(`Your appointment on ${date} has expired!`);
+            })
+            .catch((error) => {
+                console.error("Failed to update appointment status:", error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [setLoading, secureAxios, user?.email, _id, date]);
 
     return (
         <div ref={cardRef} className={`${bgColor} text-white p-6 rounded-md space-y-2 mb-6 md:mx-2 relative`}>

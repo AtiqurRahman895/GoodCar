@@ -30,7 +30,7 @@ const LongDiscriptionSection = ({rawQuillValue,setRawQuillValue,long_discription
                                 id="long_discription" 
                                 name="long_discription"
                                 modules={modules}
-                                className='h-72 [&_.ql-toolbar.ql-snow]:!bg-white'
+                                className='h-72 [&_.ql-toolbar.ql-snow]:!bg-white [&_.ql-editor.ql-blank::before]:!text-white'
                                 theme="snow"
                             />
                         </div>

@@ -57,7 +57,7 @@ const AppointmentForm = () => {
       phone,
       email,
       date,
-      time: JSON.parse(time),
+      time,
       services: selectedServiceValues,
       status: "Scheduled",
     };

@@ -19,7 +19,7 @@ const UpdateAppointmentForm = () => {
   const [phone, setPhone] = useState(appointment?.phone);
   const [phoneError, setPhoneError] = useState(false);
   const [date, setDate] = useState(appointment?.date);
-  const [time, setTime] = useState(JSON.stringify(appointment?.time));
+  const [time, setTime] = useState(appointment?.time);
   const [services, setServices] = useState([]);
   const [status, setStatus] = useState(appointment?.status);
 
@@ -62,7 +62,7 @@ const UpdateAppointmentForm = () => {
       phone,
       email,
       date,
-      time: JSON.parse(time),
+      time,
       services: selectedServiceValues,
       status,
     };
@@ -73,6 +73,7 @@ const UpdateAppointmentForm = () => {
       .then(() => {
         e.target.reset();
         toast.success(`You have successfully updated an appointment!`);
+        navigate(-1)
       })
       .catch((error) => {
         if (error.status === 401 || error.status === 403) {
