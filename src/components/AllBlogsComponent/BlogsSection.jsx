@@ -3,28 +3,27 @@ import Loading from "../AuthenticationComponent/Loading";
 import TopScrollBar from "./TopScrollBar";
 import RecentBlogCard from "../HomeComponent/RecentBlogCard";
 import { TransferLists } from "../../Contexts/TransferLists";
-import useAxios from "../../Hooks/useAxios";
+import useNormalAxios from "../../Hooks/useNormalAxios";
 
 const BlogsSection = () => {
-  const {normalAxios}= useAxios()
-
+  const normalAxios = useNormalAxios();
   const { searchQuery } = useContext(TransferLists);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    // console.log(typeof searchQuery)
     const params = {
-      query:{ $text: { $search: searchQuery } },
+      query: { $text: { $search: searchQuery } },
     };
 
     setLoading(true);
 
-    normalAxios.get("/blogs", searchQuery !== "All" && { params })
+    normalAxios
+      .get("/blogs", searchQuery !== "All" && { params })
       .then((res) => {
         if (res.data.length === 0) {
-          setBlogs([])
+          setBlogs([]);
           setNotFound(true);
         } else {
           setBlogs(res.data);

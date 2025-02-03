@@ -9,7 +9,7 @@
 // const AddToWishlistButton = ({ _id, image, title, category, buttonClass, iconClass,}) => {
 //   const navigate = useNavigate();
 //   const { user, logoutUser } = useContext(AuthContext);
-//   const {secureAxios}= useAxios()
+//     const secureAxios = useSecureAxios();
 
 //   const handleWishlistButton = () => {
 //     if (!user) {
@@ -34,11 +34,6 @@
 //         toast.success(`You have successfully added This blog to the wishlist!`);
 //       })
 //       .catch((error) => {
-//         if (error.status === 401 || error.status === 403) {
-//           logoutUser();
-//           toast.error(error.response.data.message);
-//           navigate("/login");
-//         }
 //         console.error("Error finding blogs:", error);
 //       });
 //   };

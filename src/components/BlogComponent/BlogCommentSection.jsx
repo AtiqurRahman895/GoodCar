@@ -1,16 +1,17 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Loading from "../AuthenticationComponent/Loading";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import useAxios from "../../Hooks/useAxios";
+import useSecureAxios from "../../Hooks/useSecureAxios";
+import useNormalAxios from "../../Hooks/useNormalAxios";
 
 const BlogCommentSection = ({ blog_id, author_email }) => {
   const navigate = useNavigate();
-  const { user,logoutUser } = useContext(AuthContext);
-  const {normalAxios, secureAxios}= useAxios()
+  const { user } = useContext(AuthContext);
 
+  const normalAxios = useNormalAxios();
+  const secureAxios = useSecureAxios();
 
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -20,7 +21,8 @@ const BlogCommentSection = ({ blog_id, author_email }) => {
     const params = { query: { blog_id }, sort: { _id: 1 } };
     // setLoading(true);
     // console.log("its loading!");
-    normalAxios.get("/comments", { params })
+    normalAxios
+      .get("/comments", { params })
       .then((res) => {
         // console.log(res.data)
         if (res.data.length === 0) {
@@ -64,18 +66,14 @@ const BlogCommentSection = ({ blog_id, author_email }) => {
     };
 
     setLoading(true);
-    
-    secureAxios.post("/addComment", commentCredentials )
+
+    secureAxios
+      .post("/addComment", commentCredentials)
       .then(() => {
         e.target.reset();
         toast.success("You have successfully added a Comment on this blog!");
       })
       .catch((error) => {
-        if (error.status === 401 || error.status === 403) {
-          logoutUser();
-          toast.error(error.response.data.message);
-          navigate("/login");
-        }
         console.error("Error adding comment:", error);
         toast.error(
           error.response?.data?.message || `Failed to add your comment!`
@@ -127,7 +125,11 @@ const BlogCommentSection = ({ blog_id, author_email }) => {
                 >
                   <div className="flex items-center gap-2">
                     <img
-                      src={comment.commenter_image?comment.commenter_image:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                      src={
+                        comment.commenter_image
+                          ? comment.commenter_image
+                          : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                      }
                       className="w-[40px] h-[40px] rounded-full place-content-center"
                     />
                     <div className="gird gap-1">

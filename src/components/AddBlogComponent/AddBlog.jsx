@@ -8,12 +8,12 @@ import ShortDiscriptionSection from "./ShortDiscriptionSection";
 import LongDiscriptionSection from "./LongDiscriptionSection";
 import CategoryInputSection from "./CategoryInputSection";
 import TitleInputSection from "./TitleInputSection";
-import useAxios from "../../Hooks/useAxios";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const AddBlog = () => {
   const navigate = useNavigate();
-  const { user, logoutUser } = useContext(AuthContext);
-  const { secureAxios } = useAxios();
+  const { user } = useContext(AuthContext);
+  const secureAxios = useSecureAxios();
 
   const [image, setImage] = useState();
   // const [goodImage, setGoodImage] = useState(false);
@@ -88,11 +88,6 @@ const AddBlog = () => {
         return secureAxios.put("/updateCategory", categoryCredentials);
       })
       .catch((error) => {
-        if (error.status === 401 || error.status === 403) {
-          logoutUser();
-          toast.error(error.response.data.message);
-          navigate("/login");
-        }
         console.error("Error adding Blog:", error);
         toast.error(
           error.response?.data?.message ||

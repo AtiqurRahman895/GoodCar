@@ -1,20 +1,17 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
-import { useStateManager } from "react-select";
-import useAxios from "../../Hooks/useAxios";
 import { TransferLists } from "../../Contexts/TransferLists";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import useAddAppointment from "../../Hooks/useAddAppointment";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const {amount,appointmentCredentials,setAppointmentCredentials}=useContext(TransferLists)
-    const { secureAxios } = useAxios();
-    const{user,logoutUser}=useContext(AuthContext)
-    const navigate = useNavigate();
+    const secureAxios = useSecureAxios();
+    const{user}=useContext(AuthContext)
     const addAppointment=useAddAppointment()
 
 
@@ -23,18 +20,14 @@ const CheckoutForm = () => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        secureAxios.post(`/create-payment-intent`,{amount,email:user.email})
+        secureAxios.post(`/create-payment-intent`,{amount})
         .then((res) => {
             setClientSecret(res.data.clientSecret)
         })
         .catch((error) => {
-            if (error.status === 401 || error.status === 403) {
-              logoutUser();
-              toast.error(error.response.data.message);
-              navigate("/login");
-            }
+          console.error(error);
         });
-    }, [secureAxios,amount,user.email]);
+    }, [secureAxios,amount]);
   
     const handleSubmit = async (event) => {
       // Block native form submission.

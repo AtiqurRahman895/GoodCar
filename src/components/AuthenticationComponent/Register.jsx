@@ -7,12 +7,13 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import googleSVG from '../../assets/google.svg'
 import useHostImage from "../../Hooks/useHostImage";
 import { FaRegUserCircle } from "react-icons/fa";
+import { normalAxios } from "../../Hooks/useNormalAxios";
 
 
 const Register = () => {
     const navigate=useNavigate()
     const [showPassword, setShowPassword]=useState(false)
-    const {setUser,loginWithGoogle,creatUser,updateUserProfile}=useContext(AuthContext)
+    const {logoutUser,loginWithGoogle,creatUser,updateUserProfile}=useContext(AuthContext)
     const [password, setPassword]=useState()
     const [passwordError, setPasswordError]=useState(false)
     const [image, setImage] = useState();
@@ -24,17 +25,22 @@ const Register = () => {
         hostImage(file,setImage)
     }
 
-    const handleGoogleLoginBtn=()=>{
-        loginWithGoogle()
-        .then((userCredential)=>{
-            setUser(userCredential.user)
-            navigate("/")
-            toast.success(`Login successful! Welcome, ${userCredential.user.displayName}!`)
-        }).catch((error) => {
-            toast.error(error.message?error.message:error.code)
-
-        })
-    }
+    const handleGoogleLoginBtn = async () => {
+        try {
+          let result = await loginWithGoogle();
+          await normalAxios.post("/addUser", {
+            image: result.user.photoURL,
+            name: result.user.displayName,
+            email: result.user.email,
+            role: "client",
+          });
+    
+          navigate("/");
+          toast.success(`Login successful! Welcome, ${result.user.displayName}!`);
+        } catch (error) {
+          toast.error(error.message ? error.message : error.code);
+        }
+    };
 
     const handlePasswordInputChanges=(e)=>{
         setPassword(e.target.value)
@@ -48,34 +54,29 @@ const Register = () => {
         } 
     }
 
-    const CreatUserOnSubmit=(e)=>{
+    const CreatUserOnSubmit= async(e)=>{
         e.preventDefault()
         const name=e.target.name.value
-        const photoURL=image
+        const photoURL=image||"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
         const email=e.target.email.value
         const password=e.target.password.value
+        const role = "client";
 
         if(passwordError){
             e.target.password.focus();
             return
         }
 
-        creatUser(email,password)
-            .then((userCredential) => {
-                toast.success("Your Registration successfull!")
-                setUser(userCredential.user);
-                e.target.reset()
-                updateUserProfile(name,photoURL).then(()=>{
-                    navigate("/")
-                }).catch((error) => {
-                    toast.error(error.message?error.message:error.code)
-    
-                });
-
-            }).catch((error) => {
-                toast.error(error.message?error.message:error.code)
-
-            });
+        try {
+            await creatUser(email, password);
+            toast.success("Your Registration successfull!");
+            await updateUserProfile(name, photoURL);
+            await normalAxios.post("/addUser", { image, name, email, role });
+            logoutUser();
+            navigate("/login");
+        } catch (error) {
+            toast.error(error.message ? error.message : error.code);
+        }
             
 
     }

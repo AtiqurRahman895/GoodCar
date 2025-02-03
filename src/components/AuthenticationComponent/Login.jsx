@@ -5,12 +5,13 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 import googleSVG from '../../assets/google.svg'
+import { normalAxios } from '../../Hooks/useNormalAxios';
 // import PropTypes from 'prop-types';
 
 const Login = () => {
     const [showPassword, setShowPassword]=useState(false)
     const [email,setemail]=useState()
-    const [emailValid, setEmailValid]=useState(false)
+    const [emailValid,setEmailValid]=useState(false)
     const {loginWithGoogle,loginUser,setUser}=useContext(AuthContext)
     const navigate=useNavigate()
 
@@ -19,17 +20,22 @@ const Login = () => {
         setEmailValid(e.target.checkValidity())
     }
 
-    const handleGoogleLoginBtn=()=>{
-        loginWithGoogle()
-        .then((userCredential)=>{
-            setUser(userCredential.user)
-            navigate("/")
-            toast.success(`Login successful! Welcome, ${userCredential.user.displayName}!`)
-        }).catch((error) => {
-            toast.error(error.message?error.message:error.code)
-
-        })
-    }
+    const handleGoogleLoginBtn = async () => {
+        try {
+          let result = await loginWithGoogle();
+          await normalAxios.post("/addUser", {
+            image: result.user.photoURL,
+            name: result.user.displayName,
+            email: result.user.email,
+            role: "client",
+          });
+    
+          navigate("/");
+          toast.success(`Login successful! Welcome, ${result.user.displayName}!`);
+        } catch (error) {
+          toast.error(error.message ? error.message : error.code);
+        }
+    };
 
     const LoginOnSubmit=(e)=>{
         e.preventDefault()
@@ -37,18 +43,16 @@ const Login = () => {
         const password=e.target.password.value
         
         loginUser(email,password)
-            .then((userCredential) => {
-                setUser(userCredential.user)
-                e.target.reset()
-                navigate("/")
-                toast.success(`Login successful! Welcome, ${userCredential.user.displayName}!`)
-
-
-            }).catch((error) => {
-                toast.error(error.message?error.message:error.code)
-
-            });
+        .then((userCredential) => {
+            setUser(userCredential.user)
+            e.target.reset()
+            navigate("/")
+            toast.success(`Login successful! Welcome, ${userCredential.user.displayName}!`)
+        }).catch((error) => {
+            toast.error(error.message?error.message:error.code)
+        });
     }
+
     return (
         <section className='mt-16'>
             <div className="container hero flex items-center justify-center">

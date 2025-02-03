@@ -1,12 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from 'react-toastify';
-import { HelmetProvider } from 'react-helmet-async';
-import Base from './components/BaseComponent/Base'
-import ErrorPage from './components/ErrorPageComponent/ErrorPage'
+import { ToastContainer } from "react-toastify";
+import { HelmetProvider } from "react-helmet-async";
+import Base from "./components/BaseComponent/Base";
+import ErrorPage from "./components/ErrorPageComponent/ErrorPage";
 import Login from "./components/AuthenticationComponent/Login";
 import Register from "./components/AuthenticationComponent/Register";
 import AuthProvider from "./Provider/AuthProvider";
@@ -14,32 +14,30 @@ import PrivateRoute from "./components/AuthenticationComponent/PrivateRoute";
 import UpdateProfile from "./components/AuthenticationComponent/UpdateProfile";
 import ChangePassword from "./components/AuthenticationComponent/ChangePassword";
 import ForgotPassword from "./components/AuthenticationComponent/ForgotPassword";
-import Home from './components/HomeComponent/Home';
-import Services from './components/ServicesComponent/Services';
+import Home from "./components/HomeComponent/Home";
+import Services from "./components/ServicesComponent/Services";
 import AddBlog from "./components/AddBlogComponent/AddBlog";
 import AllBlogs from "./components/AllBlogsComponent/AllBlogs";
-import {normalAxios} from "./Hooks/useAxios"
-import {secureAxios} from "./Hooks/useAxios"
+import { normalAxios } from "./Hooks/useNormalAxios";
+import { secureAxios } from "./Hooks/useSecureAxios";
 import ScrollProgress from "./components/BlogComponent/ScrollProgress";
 import Blog from "./components/BlogComponent/Blog";
-import AdminRoute from './components/AuthenticationComponent/AdminRoute';
+import AdminRoute from "./components/AuthenticationComponent/AdminRoute";
 // import AdminBase from './components/BaseComponent/AdminBase';
-import UpdateBlog from './components/UpdateBlogComponent/UpdateBlog';
-import Service from './components/ServiceComponent/service';
-import MyAppointments from './components/MyAppointmentsComponent/MyAppointments';
-import AllAppointments from './components/AllAppointmentsComponent/AllAppointments';
-import UpdateAppointment from './components/UpdateAppointmentComponent/UpdateAppointment';
-import Payment from './components/PaymentComponent/Payment';
-
-
+import UpdateBlog from "./components/UpdateBlogComponent/UpdateBlog";
+import Service from "./components/ServiceComponent/service";
+import MyAppointments from "./components/MyAppointmentsComponent/MyAppointments";
+import AllAppointments from "./components/AllAppointmentsComponent/AllAppointments";
+import UpdateAppointment from "./components/UpdateAppointmentComponent/UpdateAppointment";
+import Payment from "./components/PaymentComponent/Payment";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Base/>,
-    errorElement: <ErrorPage/>,
+    element: <Base />,
+    errorElement: <ErrorPage />,
 
-    children:[
+    children: [
       {
         path: "/",
         element: <Home />,
@@ -154,12 +152,11 @@ const router = createBrowserRouter([
         path: "/forgot-password",
         element: <ForgotPassword />,
       },
-    ]
+    ],
   },
-
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider>
       <AuthProvider>
@@ -167,5 +164,5 @@ createRoot(document.getElementById('root')).render(
         <RouterProvider router={router} />
       </AuthProvider>
     </HelmetProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);

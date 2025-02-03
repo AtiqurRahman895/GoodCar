@@ -13,15 +13,14 @@ import {
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
-import axios from "axios";
-import useAxios from "../Hooks/useAxios";
+import useNormalAxios from "../Hooks/useNormalAxios";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const {secureAxios}= useAxios()
+  const normalAxios = useNormalAxios();
 
   const googleProvider = new GoogleAuthProvider();
   const loginWithGoogle = () => {
@@ -76,13 +75,16 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribeUser = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribeUser = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
-        secureAxios.post("/jwt", user);
+        await normalAxios.post("/jwt", user,{withCredentials: true});
+        setUser(currentUser);
+
       } else {
-        secureAxios.get("/logout");
+        normalAxios.get("/logout",{withCredentials: true});
+        document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`
+        setUser(currentUser);
       }
       setLoading(false);
     });

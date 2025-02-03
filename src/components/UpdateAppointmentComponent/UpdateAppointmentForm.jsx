@@ -3,15 +3,15 @@ import AppointmentDateTimeInput from "../AppointmentFormComponent/AppointmentDat
 import MultiSelectOptions from "../AppointmentFormComponent/MultiSelectOptions";
 import PhoneNumberInput from "../AppointmentFormComponent/PhoneNumberInput";
 import { toast } from "react-toastify";
-import useAxios from "../../Hooks/useAxios";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import StatusInput from "./StatusInput";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const UpdateAppointmentForm = () => {
   const appointment = useLoaderData();
   const navigate = useNavigate();
-  const { secureAxios } = useAxios();
+  const secureAxios = useSecureAxios();
   const { user, logoutUser } = useContext(AuthContext);
 
   const [name, setName] = useState(appointment?.name);
@@ -76,11 +76,6 @@ const UpdateAppointmentForm = () => {
         navigate(-1)
       })
       .catch((error) => {
-        if (error.status === 401 || error.status === 403) {
-          logoutUser();
-          toast.error(error.response.data.message);
-          navigate("/login");
-        }
         console.error("Error updating an appointment:", error);
         toast.error(
           error.response?.data?.message || `Failed to update an appointment!`

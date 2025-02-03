@@ -3,10 +3,10 @@ import useScreenWidth from "../../Hooks/useScreenWidth";
 import { useEffect, useState } from "react";
 import Loading from "../AuthenticationComponent/Loading";
 import RecentBlogCard from "./RecentBlogCard";
-import useAxios from "../../Hooks/useAxios";
+import useNormalAxios from "../../Hooks/useNormalAxios";
 
 const RecentBlogsSection = () => {
-  const {normalAxios}= useAxios()
+  const normalAxios = useNormalAxios();
 
   const screenWidth = useScreenWidth();
   const [columnsCount, setColumnsCount] = useState();
@@ -30,7 +30,8 @@ const RecentBlogsSection = () => {
 
     setLoading(true);
 
-    normalAxios.get("/blogs", { params })
+    normalAxios
+      .get("/blogs", { params })
       .then((res) => {
         // console.log(res.data)
         res.data.length === 0 ? setNotFound(true) : setRecentBlogs(res.data);

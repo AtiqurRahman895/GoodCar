@@ -8,14 +8,14 @@ import { TransferLists } from "../../Contexts/TransferLists";
 const AdminRoute = ({children}) => {
     const navigate = useNavigate();
     const {user,loading,logoutUser}=useContext(AuthContext)
-    const {adminUsers}=useContext(TransferLists)
+    const {role}=useContext(TransferLists)
 
 
     if(loading){
         return <Loading/>
     }
     if(user){
-        if(adminUsers.includes(user.email)){
+        if(role && role==="admin"){
             return children
         }else{
             logoutUser();

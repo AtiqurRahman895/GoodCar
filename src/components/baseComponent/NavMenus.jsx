@@ -11,7 +11,7 @@ import { TransferLists } from "../../Contexts/TransferLists";
 
 const NavMenus = () => {
   const {user}=useContext(AuthContext)
-  const {adminUsers}=useContext(TransferLists)
+  const {role}=useContext(TransferLists)
 
 
   return (
@@ -25,7 +25,7 @@ const NavMenus = () => {
       </li> */}
 
       {
-        user && adminUsers.includes(user.email)?
+        (user && role && role==="admin")?
         <>
         <li className="w-fit">
           <NavLink to={"/add_blog"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><MdRateReview />Add Blog</NavLink>
@@ -39,7 +39,7 @@ const NavMenus = () => {
       }
       
       {
-        user && adminUsers.includes(user.email)?
+        (user && role && role==="admin")?
         <>
         <li className="w-fit">
           <NavLink to={"/allAppoinments"} className="hover:bg-transparent flex items-center gap-1 pb-1 mb-1"><RiCalendarScheduleFill />All Appoinments</NavLink>

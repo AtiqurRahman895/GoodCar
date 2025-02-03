@@ -5,17 +5,15 @@ import { TfiEmail } from "react-icons/tfi";
 import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import { FaArrowsSpin } from "react-icons/fa6";
 import Timer from "./Timer";
-import useAxios from "../../Hooks/useAxios";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { TransferLists } from "../../Contexts/TransferLists";
 import UpdateAppointmentButton from "../CommonComponents/UpdateAppointmentButton";
 import { TbTransactionDollar } from "react-icons/tb";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const AppointmentCard = ({appointment,setLoading}) => {
-    const { user } = useContext(AuthContext);
-    const {adminUsers}=useContext(TransferLists)
-    const {secureAxios}= useAxios()
+    const {role}=useContext(TransferLists)
+    const secureAxios = useSecureAxios();
     const cardRef= useRef(null)
     const [bgColor, setBgColor] =useState('')
     const {_id, name, phone, email, date, time, services, status,transaction_id}=appointment
@@ -54,7 +52,7 @@ const AppointmentCard = ({appointment,setLoading}) => {
 
     const handleTimeOut = useCallback(() => {
         setLoading(true);
-        secureAxios.put('/expireAppointment', { user_email: user?.email, _id })
+        secureAxios.put('/expireAppointment', { _id })
             .then(() => {
                 toast.warning(`Your appointment on ${date} has expired!`);
             })
@@ -64,7 +62,7 @@ const AppointmentCard = ({appointment,setLoading}) => {
             .finally(() => {
                 setLoading(false);
             });
-    }, [setLoading, secureAxios, user?.email, _id, date]);
+    }, [setLoading, secureAxios, _id, date]);
 
     return (
         <div ref={cardRef} className={`${bgColor} text-white p-6 rounded-md space-y-2 mb-6 md:mx-2 relative`}>
@@ -85,12 +83,12 @@ const AppointmentCard = ({appointment,setLoading}) => {
                 </div>
                 <div className="flex gap-1 items-center">
                     <IoMdTime className="" />
-                    <b className="">{time.start}</b>
+                    <b className="">{time}</b>
                 </div>
             </div>
 
             {
-                adminUsers?.includes(user?.email)&&
+                (role && role==="admin")&&
                 <>
                     <UpdateAppointmentButton _id={_id} buttonClass={`p-1.5 absolute top-0 right-0 mr-4 !mt-4}`} iconClass={"text-lg"}/>
                     

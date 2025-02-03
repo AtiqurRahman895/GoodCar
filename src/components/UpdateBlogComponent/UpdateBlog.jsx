@@ -8,13 +8,12 @@ import ShortDiscriptionSection from "../AddBlogComponent/ShortDiscriptionSection
 import LongDiscriptionSection from "../AddBlogComponent/LongDiscriptionSection";
 import Loading from "../AuthenticationComponent/Loading";
 import TitleInputSection from "../AddBlogComponent/TitleInputSection";
-import useAxios from "../../Hooks/useAxios";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const UpdateBlog = () => {
   const navigate = useNavigate();
   const blogInfo = useLoaderData();
-  const {secureAxios}= useAxios()
-
+  const secureAxios = useSecureAxios();
   const { user, logoutUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   // const {_id,image,category,title,author,author_email,published,short_discription,long_discription,word_count}=blogInfo&&blogInfo
@@ -89,15 +88,8 @@ const UpdateBlog = () => {
       .then(() => {
         e.target.reset();
         toast.success("You have successfully updated this Blog!");
-        //   const categoryCredentials = { category };
-        // return secureAxios.put("/updateCategory");
       })
       .catch((error) => {
-        if (error.status === 401 || error.status === 403) {
-          logoutUser();
-          toast.error(error.response.data.message);
-          navigate("/login");
-        }
         console.error("Error updating Blog:", error);
         toast.error(
           error.response?.data?.message || `Failed to update this blog?`

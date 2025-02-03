@@ -1,19 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
-import useAxios from "../../Hooks/useAxios";
-import { toast } from "react-toastify";
 import Loading from "../AuthenticationComponent/Loading";
 import CommonHeroSection from "../CommonComponents/CommonHeroSection";
 import useScreenWidth from "../../Hooks/useScreenWidth";
 import Masonry from "react-responsive-masonry";
 import AppointmentCard from "../MyAppointmentsComponent/AppointmentCard";
+import useSecureAxios from "../../Hooks/useSecureAxios";
 
 const AllAppointments = () => {
-    const navigate = useNavigate();
-    const {secureAxios}= useAxios()
-    const { user,logoutUser } = useContext(AuthContext);
+    const secureAxios = useSecureAxios();
+    const { user } = useContext(AuthContext);
 
     const screenWidth = useScreenWidth();
     const [columnsCount, setColumnsCount] = useState();
@@ -48,11 +45,6 @@ const AllAppointments = () => {
             }
         })
         .catch((error) => {
-            if (error.status === 401 || error.status === 403) {
-              logoutUser();
-              toast.error(error.response.data.message);
-              navigate("/login");
-            }
             console.error("Error finding appointments:", error);
         })
         .finally(() => {
