@@ -77,14 +77,17 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribeUser = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser?.email) {
-        const user = { email: currentUser.email };
+        const email=currentUser.email 
+        const user = { email };
         await normalAxios.post("/jwt", user,{withCredentials: true});
+        localStorage.setItem("email", email)
         setUser(currentUser);
 
       } else {
         normalAxios.get("/logout",{withCredentials: true});
-        document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`
+        localStorage.removeItem("email")
         setUser(currentUser);
+        document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`
       }
       setLoading(false);
     });

@@ -11,13 +11,14 @@ export const secureAxios = axios.create({
 
 const useSecureAxios = () => {
     const navigate = useNavigate();
-    const {logoutUser,user } = useContext(AuthContext);
+    const {logoutUser } = useContext(AuthContext);
 
     secureAxios.interceptors.request.use(function (config) {
         const role=localStorage.getItem("role")
-        if(user?.email && role){
+        const email=localStorage.getItem("email")
+        if(email && role){
             config.headers={
-                email:user.email,
+                email,
                 role,
             }
         }
