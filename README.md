@@ -2,6 +2,7 @@
 
 GoodCar is a professional car service and appointment booking platform where users can schedule maintenance, explore services, and read automotive blogs. 
 
+![GoodCar Screenshot](https://i.ibb.co.com/HRM6nt9/project-Image1.jpg) 
 
 ## 🚀 Live Project  
 🔗 [GoodCar Live](https://good-car-atiq.web.app/)  
